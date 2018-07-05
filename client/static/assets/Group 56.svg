@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.152 21.153">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_56" data-name="Group 56" transform="translate(-1418 145.075)">
+    <g id="cart" transform="translate(1418 -145.075)">
+      <g id="cart-2" data-name="cart" transform="translate(0 0)">
+        <g id="Group_6" data-name="Group 6" transform="translate(13.22 15.865)">
+          <path id="Path_208" data-name="Path 208" class="cls-1" d="M315.144,375a2.644,2.644,0,1,0,2.644,2.644A2.645,2.645,0,0,0,315.144,375Zm0,3.964a1.32,1.32,0,1,1,1.32-1.32A1.322,1.322,0,0,1,315.144,378.964Z" transform="translate(-312.5 -375)"/>
+        </g>
+        <g id="Group_7" data-name="Group 7" transform="translate(6.608 15.865)">
+          <path id="Path_209" data-name="Path 209" class="cls-1" d="M158.844,375a2.644,2.644,0,1,0,2.644,2.644A2.645,2.645,0,0,0,158.844,375Zm0,3.964a1.32,1.32,0,1,1,1.32-1.32A1.322,1.322,0,0,1,158.844,378.964Z" transform="translate(-156.2 -375)"/>
+        </g>
+        <g id="Group_8" data-name="Group 8">
+          <path id="Path_210" data-name="Path 210" class="cls-1" d="M20.785,4.087A1.95,1.95,0,0,0,19.224,3.3H4.332L3.262.432A.659.659,0,0,0,2.644,0H.66a.66.66,0,1,0,0,1.32H2.183L6.6,13.246A1.931,1.931,0,0,0,8.431,14.54h8.25a1.932,1.932,0,0,0,1.832-1.295l2.538-7.437A1.875,1.875,0,0,0,20.785,4.087Zm-.986,1.3-2.538,7.433a.6.6,0,0,1-.58.4H8.431a.614.614,0,0,1-.584-.415L4.819,4.628h14.4a.617.617,0,0,1,.5.25A.545.545,0,0,1,19.8,5.385Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

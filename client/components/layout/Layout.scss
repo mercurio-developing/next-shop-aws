@@ -1,0 +1,37 @@
+@import './main.scss';
+
+#container{
+    height: 100%;
+    background:red;
+}
+
+// NAVBAR
+.navbar-row{
+    background-color:$dark;
+}
+
+.navbar{
+    height: 75px;
+}
+.navbar-brand span{
+    color:#fff;  
+    font-size:28px;
+    font-family:$font-logo !important;
+}
+
+.logo{
+    width:48px;
+}
+
+.nav-link{
+   color:#fff;  
+   font-size:12px;
+   @extend %mrs-eaveas-sans;
+}
+
+// FOOTER
+
+.footer-row{
+    background-color:$dark;
+
+}

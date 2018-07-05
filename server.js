@@ -5,12 +5,11 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const next = require("next");
-const app = next({ dir: "./client" });
+const dev = process.env.NODE_ENV !== "production";
+
+const app = next({ dev, dir: "./client" });
 const handle = app.getRequestHandler();
 // Put in place textbook middlewares for express.
-if (process.env.NODE_ENV !== "production") {
-  // app.use(logger('dev'));
-}
 
 // //routes declare
 // const authRouter = require("./routes/users");
@@ -25,10 +24,6 @@ app.prepare().then(() => {
   server.use(bodyParser.urlencoded({ extended: false }));
   server.use(cookieParser());
   server.use("/", express.static(path.join(__dirname, "public")));
-
-  // Body parser middleware
-  server.use(bodyParser.urlencoded({ extended: false }));
-  server.use(bodyParser.json());
 
   // DB Config
   const db = require("./config/config").mongoURI;

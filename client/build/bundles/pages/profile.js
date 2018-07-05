@@ -1,1 +1,0 @@
-module.exports=__NEXT_REGISTER_PAGE("/profile",function(){return{page:webpackJsonp([3],{305:function(e,n,t){e.exports=t(306)},306:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r=t(0),u=t.n(r);n.default=function(){return u.a.createElement("span",null,"Profile")}}},[305]).default}});
