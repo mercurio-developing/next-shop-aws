@@ -1,13 +1,14 @@
-@import './main.scss';
+@import './index.scss';
 
 #container{
-    height: 100%;
-    background:red;
+    height: 90%;
 }
+
 
 // NAVBAR
 .navbar-row{
     background-color:$dark;
+
 }
 
 .navbar{
@@ -26,12 +27,24 @@
 .nav-link{
    color:#fff;  
    font-size:12px;
-   @extend %mrs-eaveas-sans;
+   @extend %mrs-eaveas-sans-bold;
 }
+
+.nav-link:hover{
+    color:$gold;  
+    font-size:12.5px;
+    transition:0.5s
+ }
 
 // FOOTER
 
 .footer-row{
     background-color:$dark;
+    height: 50px;
+}
 
+.copy{
+    color:#fff;  
+    font-size:14px;
+    @extend %mrs-eaveas-sans-bold;
 }

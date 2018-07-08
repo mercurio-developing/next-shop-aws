@@ -1,0 +1,17 @@
+@import './index.scss';
+// //////////////////////// //////// //////// 
+// INVENTORY, CATEGORY LIST COMPONENT/////
+/////////////////////////////////// //////// 
+
+/*Category List*/
+.category-list{
+    background-color:$dark;
+}
+
+li {
+    @extend %mrs-eaveas-sans-bold;
+    color:#fff;
+    font-size:14px;
+    list-style: none;
+}
+

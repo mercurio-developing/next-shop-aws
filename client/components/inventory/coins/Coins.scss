@@ -1,0 +1,18 @@
+@import './index.scss';
+// ////////////////////////
+// COINS, COIN COMPONENT/////
+///////////////////////////
+
+.btn-gold{
+    @extend %button-primary;
+    font-size:16px;
+    padding:10px 18px 10px 18px;
+}
+.coin-title{
+    @extend %mrs-eaveas-sans;
+    font-size:20px;
+}
+.coin-price{
+    font-family: Roboto;
+    font-size:16px;
+}

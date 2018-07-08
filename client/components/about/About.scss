@@ -1,0 +1,37 @@
+@import './index.scss';
+// ///////////////////
+//ABOUT COMPONENT/////
+//////////////////////
+
+.credentials-logo{
+    width: 200px;
+}
+
+.card-about{
+    background-color:$lightgrey;
+}
+
+.fa-user-circle{
+    font-size:32px;
+}
+
+.subheader{
+    @extend %mrs-eaveas-sans;
+    font-size:16px;
+}
+
+.card-description h3{
+    @extend %mrs-eaveas-ot-roman;
+}
+
+.about-text{
+    @extend %mrs-eaveas-ot-italic;
+    font-size:16px;
+    line-height: 22px;
+}
+.owner p{
+    @extend %mrs-eaveas-sans;
+    line-height: 22px;
+    font-size:18px;
+
+}

@@ -21,7 +21,24 @@
 }
 
 %mrs-eaveas-sans{
-    font-family:mrs-eaveas-sans,sans-serif    ;
-    font-style:normal;
+    font-family: mr-eaves-sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+%mrs-eaveas-sans-bold{
+    font-family: mr-eaves-sans, sans-serif;
+    font-style: normal;
     font-weight: 700;
+}
+
+
+
+// BUTTON
+
+%button-primary{
+    @extend %mrs-eaveas-sans;
+    background-color:$yellow;
+    color:#fff;
+    border-radius:4px;
 }

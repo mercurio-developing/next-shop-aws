@@ -10,7 +10,9 @@ class Layout extends Component {
       <>
         <style dangerouslySetInnerHTML={{ __html: LayoutStyle }} />
         <Navbar />
-        <div className="container-fluid">{children}</div>
+        <div className="container-fluid" id="container">
+          {children}
+        </div>
         <Footer />
       </>
     );

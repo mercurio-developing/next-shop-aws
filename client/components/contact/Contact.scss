@@ -1,0 +1,25 @@
+@import './index.scss';
+// ///////////////////
+//CONTACT COMPONENT/////
+//////////////////////
+
+h3{
+    @extend %mrs-eaveas-sans-bold;
+}
+
+label{
+    @extend %mrs-eaveas-sans;
+    line-height: 22px;  
+}
+
+input,textarea{
+    @extend %mrs-eaveas-sans;
+    line-height: 22px;
+    color:$lightgrey;
+}
+
+.btn-gold{
+    @extend %button-primary;
+    font-size:18px;
+    padding:10px 20px 8px 20px;
+}

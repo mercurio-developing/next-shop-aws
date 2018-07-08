@@ -1,3 +1,45 @@
-h1{
-    font-size:58px;
+@import './index.scss';
+// ///////////////////
+// HOME COMPONENT/////
+//////////////////////
+
+/*HERO IMAGE*/
+.hero-image{
+    height: 48%;
+    background:url('../../static/assets/banner.jpg');
+    color:#000;
+}
+
+.hero-title{
+   @extend %mrs-eaveas-ot-roman;
+   font-size:20px;
+   line-height: 24px;
+}
+
+.btn-gold{
+    @extend %button-primary;
+    font-size:14px;
+    padding:10px 12px 8px 12px;
+}
+
+//CATEGORIES
+
+.category-card{
+    background-color:$lightgrey;
+    width: 20%;
+    border-radius:3px;
+    box-shadow:3px 3px 3px 0px darkgrey;
+}
+
+.card-title{
+   @extend %mrs-eaveas-ot-roman;
+   font-size:18px;
+}
+
+.title-customers{
+    font-size:18px;
+}
+
+.main-banner{
+    width:300px;
 }

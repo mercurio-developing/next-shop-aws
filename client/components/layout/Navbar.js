@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default () => {
   return (
@@ -21,24 +22,26 @@ export default () => {
             >
               <span className="navbar-toggler-icon" />
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="collapse navbar-collapse">
               <div className="navbar-nav ml-auto">
-                <a className="nav-item nav-link active" href="#">
-                  HOME
-                </a>
-                <a className="nav-item nav-link" href="#">
-                  ABOUT
-                </a>
-                <a className="nav-item nav-link" href="#">
-                  CONTACT
-                </a>
-                <a className="nav-item nav-link" href="#">
-                  INVENTORY
-                </a>
+                <Link href="/">
+                  <a className="nav-item nav-link active">HOME</a>
+                </Link>
+                <Link href="/about">
+                  <a className="nav-item nav-link active">ABOUT</a>
+                </Link>
+                <Link href="/contact">
+                  <a className="nav-item nav-link active">CONTACT</a>
+                </Link>
+                <Link href="/inventory">
+                  <a className="nav-item nav-link active">INVENTORY</a>
+                </Link>
+                <Link href="/cart">
+                  <a className="nav-item nav-link">
+                    <img src="/static/assets/cart.png" alt="" />
+                  </a>
+                </Link>
               </div>
-              <a className="nav-item nav-link" href="#">
-                <img src="/static/assets/cart.png" alt="" />
-              </a>
             </div>
           </nav>
         </div>

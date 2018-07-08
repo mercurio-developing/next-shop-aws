@@ -78,29 +78,99 @@ module.exports =
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/layout/Footer.js";
+
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "row footer-row fixed-bottom",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: "col-lg-10 col-xl-10 mx-auto",
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 7
     }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "col-lg-10 col-xl-10 mx-auto my-auto",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     }
-  }, "ROCK FOOTER"))));
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("ul", {
+    "class": "nav pt-1",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
+    "class": "nav-item nav-footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/about",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-link",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    }
+  }, "Contact"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
+    "class": "nav-item nav-footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/contact",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-link",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    }
+  }, "About"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
+    "class": "nav-item nav-footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/privacy",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-link",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    }
+  }, "Privacy"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
+    className: "nav-item pt-1 ml-auto",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+    className: "copy",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    }
+  }, "(c) 2018 Liberty Coin Investments"))))));
 });
 
 /***/ }),
@@ -168,6 +238,7 @@ function (_Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "container-fluid",
+        id: "container",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 13
@@ -175,7 +246,7 @@ function (_Component) {
       }, children), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Footer__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14
+          lineNumber: 16
         }
       }));
     }
@@ -196,7 +267,7 @@ function (_Component) {
 (function () {
   "use strict";
 
-  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.nav-link {\n  font-family: mrs-eaveas-sans,sans-serif;\n  font-style: normal;\n  font-weight: 700; }\nbody {\n  height: 100vh;\n  width: 100%;\n  overflow-x: hidden; }\n#__next, #Layout {\n  height: 100%;\n  width: 100%; }\n#container {\n  height: 100%;\n  background: red; }\n.navbar-row {\n  background-color: #3c434c; }\n.navbar {\n  height: 75px; }\n.navbar-brand span {\n  color: #fff;\n  font-size: 28px;\n  font-family: mrs-eaves-roman-small-caps !important; }\n.logo {\n  width: 48px; }\n.nav-link {\n  color: #fff;\n  font-size: 12px; }\n.footer-row {\n  background-color: #3c434c; }\n";
+  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.nav-link, .copy {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 700; }\n#container {\n  height: 90%; }\n.navbar-row {\n  background-color: #3c434c; }\n.navbar {\n  height: 75px; }\n.navbar-brand span {\n  color: #fff;\n  font-size: 28px;\n  font-family: mrs-eaves-roman-small-caps !important; }\n.logo {\n  width: 48px; }\n.nav-link {\n  color: #fff;\n  font-size: 12px; }\n.nav-link:hover {\n  color: #b78c2e;\n  font-size: 12.5px;\n  transition: 0.5s; }\n.footer-row {\n  background-color: #3c434c;\n  height: 50px; }\n.copy {\n  color: #fff;\n  font-size: 14px; }\n";
 })();
 
 /***/ }),
@@ -207,35 +278,38 @@ function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/layout/Navbar.js";
+
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "row navbar-row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "col-lg-10 col-xl-10 mx-auto",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("nav", {
     className: "navbar navbar-expand-lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
     className: "navbar-brand",
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
     src: "/static/assets/logo.png",
@@ -243,12 +317,12 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
     alt: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     }
   }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     }
   }, " LIBERTY COIN INVESTMENTS")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
     className: "navbar-toggler",
@@ -260,70 +334,94 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
     "aria-label": "Toggle navigation",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
     className: "navbar-toggler-icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 23
     }
   })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "collapse navbar-collapse",
-    id: "navbarNavAltMarkup",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 25
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     className: "navbar-nav ml-auto",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 26
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
     className: "nav-item nav-link active",
-    href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 28
     }
-  }, "HOME"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "nav-item nav-link",
-    href: "#",
+  }, "HOME")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 30
     }
-  }, "ABOUT"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "nav-item nav-link",
-    href: "#",
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-item nav-link active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     }
-  }, "CONTACT"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "nav-item nav-link",
-    href: "#",
+  }, "ABOUT")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/contact",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 33
     }
-  }, "INVENTORY")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
-    className: "nav-item nav-link",
-    href: "#",
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-item nav-link active",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    }
+  }, "CONTACT")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/inventory",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-item nav-link active",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    }
+  }, "INVENTORY")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
+    href: "/cart",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 39
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("a", {
+    className: "nav-item nav-link",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
     src: "/static/assets/cart.png",
     alt: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 41
     }
-  })))))));
+  })))))))));
 });
 
 /***/ }),
@@ -682,6 +780,13 @@ module.exports = require("next/app");
 /***/ (function(module, exports) {
 
 module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "next/link":
+/***/ (function(module, exports) {
+
+module.exports = require("next/link");
 
 /***/ }),
 
