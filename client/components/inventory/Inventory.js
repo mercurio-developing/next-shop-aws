@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import InventoryStyle from "./Inventory.scss";
-import Coins from "./coins/Coins";
-import CategoryList from "./CategoryList";
 // Mocks
 import categories from "./mocks/categories";
 import coins from "./mocks/data";
+//Components
+import CategoryList from "./CategoryList";
+import Coins from "./coins/Coins";
+import CoinDetail from "./coins/CoinDetail";
 
 class Inventory extends Component {
   constructor(props) {
@@ -12,23 +14,33 @@ class Inventory extends Component {
     this.state = {
       categories,
       allCategories: false,
-      coins
+      coins,
+      coinDetailData: {},
+      showDetail: false
     };
     this.checkCategory = this.checkCategory.bind(this);
     this.checkAll = this.checkAll.bind(this);
+    this.showCoinDetail = this.showCoinDetail.bind(this);
   }
 
   checkCategory(id) {
-    let dataCategories = this.state.categories;
-    dataCategories[id].checked = !dataCategories[id].checked;
-    this.setState({ categories: dataCategories });
+    let categories = this.state.categories;
+    categories[id].checked = !categories[id].checked;
+    this.setState({ categories });
   }
   checkAll() {
     let categories = this.state.categories;
     let checked = !this.state.allCategories;
     categories.map(category => (category.checked = checked));
-    this.setState({ categories: categories, allCategories: checked });
+    this.setState({ categories, allCategories: checked });
   }
+
+  showCoinDetail(id) {
+    let coinDetailData = this.state.coins.filter(coin => coin.id === id);
+    let showDetail = !this.state.showDetail;
+    this.setState({ showDetail, coinDetailData });
+  }
+
   render() {
     return (
       <>
@@ -43,10 +55,18 @@ class Inventory extends Component {
             />
           </div>
           <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mt-5">
-            <Coins
-              dataCategories={this.state.categories}
-              dataCoins={this.state.coins}
-            />
+            {this.state.showDetail === false ? (
+              <Coins
+                dataCategories={this.state.categories}
+                dataCoins={this.state.coins}
+                coinDetail={this.showCoinDetail}
+              />
+            ) : (
+              <CoinDetail
+                coinDetail={this.showCoinDetail}
+                coinDetailData={this.state.coinDetailData}
+              />
+            )}
           </div>
         </div>
       </>

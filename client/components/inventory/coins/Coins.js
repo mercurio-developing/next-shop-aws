@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import CoinsStyle from "./Coins.scss";
+import Coin from "./Coin";
 import Proptypes from "prop-types";
+
 class Coins extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isFilter: []
-    };
   }
 
   render() {
-    const { dataCategories, dataCoins } = this.props;
+    const { dataCategories, dataCoins, coinDetail } = this.props;
+
     let filterCoin = [];
     let dataCoinsClean = [];
 
@@ -22,44 +22,21 @@ class Coins extends Component {
             categoryChecked.checked === true
           ) {
             filterCoin.push(coin);
-            console.log(dataCoins.lenght, index + 1);
-            console.log(filterCoin);
+            filterCoin.filter((coin, index, arra) => {
+              arra.map((item, pos) => {
+                if (item.id === coin.id && pos !== index) {
+                  arra.splice(pos, 1);
+                }
+                dataCoinsClean = arra;
+              });
+            });
           }
         });
       });
     });
 
-    filterCoin.filter((coin, index, arra) => {
-      arra.map((item, pos) => {
-        if (item.id === coin.id && pos !== index) {
-          arra.splice(pos, 1);
-        }
-        dataCoinsClean = arra;
-        console.log(dataCoinsClean);
-      });
-    });
-
-    // if (filterCoin.length === index + 1) {
-    //   filterCoin.filter((coin, index, arra) => {
-    //     arra.map((item, pos) => {
-    //       if (item.id === coin.id && pos !== index) {
-    //         arra.splice(pos, 1);
-    //       }
-    //       dataCoinsClean = arra;
-    //       console.log(dataCoinsClean);
-    //     });
-    //   });
-    // }
     const coinsData = dataCoinsClean.map(coin => (
-      <div
-        key={coin.id}
-        className="col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-5"
-      >
-        <img className="img-fluid " src={coin.images[1]} alt="" />
-        <p className="mt-2 coin-title">{coin.name}</p>
-        <p className="coin-price">{coin.price}</p>
-        <button className="btn btn-md btn-gold ">ITEM DETAILS</button>
-      </div>
+      <Coin coinData={coin} coinDetail={coinDetail} />
     ));
 
     return (
@@ -73,7 +50,8 @@ class Coins extends Component {
 
 Coins.propTypes = {
   dataCoins: Proptypes.arrayOf(Object).isRequired,
-  dataCategories: Proptypes.arrayOf(Object).isRequired
+  dataCategories: Proptypes.arrayOf(Object).isRequired,
+  coinDetail: Proptypes.func.isRequired
 };
 
 export default Coins;

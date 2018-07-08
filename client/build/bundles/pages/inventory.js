@@ -178,12 +178,13 @@ CategoryList.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Inventory_scss__ = __webpack_require__("./components/inventory/Inventory.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Inventory_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Inventory_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__coins_Coins__ = __webpack_require__("./components/inventory/coins/Coins.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CategoryList__ = __webpack_require__("./components/inventory/CategoryList.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mocks_categories__ = __webpack_require__("./components/inventory/mocks/categories.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mocks_categories___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__mocks_categories__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mocks_data__ = __webpack_require__("./components/inventory/mocks/data.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mocks_data___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__mocks_data__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mocks_categories__ = __webpack_require__("./components/inventory/mocks/categories.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mocks_categories___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__mocks_categories__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mocks_data__ = __webpack_require__("./components/inventory/mocks/data.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mocks_data___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__mocks_data__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__CategoryList__ = __webpack_require__("./components/inventory/CategoryList.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__coins_Coins__ = __webpack_require__("./components/inventory/coins/Coins.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__coins_CoinDetail__ = __webpack_require__("./components/inventory/coins/CoinDetail.js");
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/inventory/Inventory.js";
@@ -203,9 +204,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
-
-
  // Mocks
+
+
+ //Components
+
 
 
 
@@ -222,22 +225,25 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (Inventory.__proto__ || Object.getPrototypeOf(Inventory)).call(this, props));
     _this.state = {
-      categories: __WEBPACK_IMPORTED_MODULE_4__mocks_categories___default.a,
+      categories: __WEBPACK_IMPORTED_MODULE_2__mocks_categories___default.a,
       allCategories: false,
-      coins: __WEBPACK_IMPORTED_MODULE_5__mocks_data___default.a
+      coins: __WEBPACK_IMPORTED_MODULE_3__mocks_data___default.a,
+      coinDetailData: {},
+      showDetail: false
     };
     _this.checkCategory = _this.checkCategory.bind(_assertThisInitialized(_this));
     _this.checkAll = _this.checkAll.bind(_assertThisInitialized(_this));
+    _this.showCoinDetail = _this.showCoinDetail.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Inventory, [{
     key: "checkCategory",
     value: function checkCategory(id) {
-      var dataCategories = this.state.categories;
-      dataCategories[id].checked = !dataCategories[id].checked;
+      var categories = this.state.categories;
+      categories[id].checked = !categories[id].checked;
       this.setState({
-        categories: dataCategories
+        categories: categories
       });
     }
   }, {
@@ -254,6 +260,18 @@ function (_Component) {
       });
     }
   }, {
+    key: "showCoinDetail",
+    value: function showCoinDetail(id) {
+      var coinDetailData = this.state.coins.filter(function (coin) {
+        return coin.id === id;
+      });
+      var showDetail = !this.state.showDetail;
+      this.setState({
+        showDetail: showDetail,
+        coinDetailData: coinDetailData
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
@@ -262,41 +280,49 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 47
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 48
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 category-list",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 49
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__CategoryList__["a" /* default */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__CategoryList__["a" /* default */], {
         dataCategories: this.state.categories,
         checkCategory: this.checkCategory,
         checkAll: this.checkAll,
         allCategories: this.state.allCategories,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 50
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mt-5",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 57
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__coins_Coins__["a" /* default */], {
+      }, this.state.showDetail === false ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__coins_Coins__["a" /* default */], {
         dataCategories: this.state.categories,
         dataCoins: this.state.coins,
+        coinDetail: this.showCoinDetail,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 59
+        }
+      }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__coins_CoinDetail__["a" /* default */], {
+        coinDetail: this.showCoinDetail,
+        coinDetailData: this.state.coinDetailData,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
         }
       }))));
     }
@@ -322,6 +348,172 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./components/inventory/coins/Coin.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("../node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("../node_modules/next/node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+
+
+var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/inventory/coins/Coin.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var Coin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Coin, _Component);
+
+  function Coin() {
+    _classCallCheck(this, Coin);
+
+    return _possibleConstructorReturn(this, (Coin.__proto__ || Object.getPrototypeOf(Coin)).apply(this, arguments));
+  }
+
+  _createClass(Coin, [{
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          coinData = _props.coinData,
+          coinDetail = _props.coinDetail;
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        key: coinData.id,
+        className: "col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-5",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+        className: "img-fluid ",
+        src: coinData.images[1],
+        alt: "",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        className: "mt-2 coin-title",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }, coinData.name), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        className: "coin-price",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      }, coinData.price), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+        className: "btn btn-md btn-gold",
+        onClick: function onClick() {
+          coinDetail(coinData.id);
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
+      }, "ITEM DETAILS"));
+    }
+  }]);
+
+  return Coin;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+Coin.protoType = {
+  coinData: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired,
+  coinDetail: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["a"] = (Coin);
+
+/***/ }),
+
+/***/ "./components/inventory/coins/CoinDetail.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("../node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("../node_modules/next/node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+
+
+var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/inventory/coins/CoinDetail.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var CoinDetail =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(CoinDetail, _Component);
+
+  function CoinDetail() {
+    _classCallCheck(this, CoinDetail);
+
+    return _possibleConstructorReturn(this, (CoinDetail.__proto__ || Object.getPrototypeOf(CoinDetail)).apply(this, arguments));
+  }
+
+  _createClass(CoinDetail, [{
+    key: "render",
+    value: function render() {
+      var coinDetailData = this.props.coinDetailData;
+      console.log(coinDetailData);
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10
+        }
+      }, "ROCK ON"));
+    }
+  }]);
+
+  return CoinDetail;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+CoinDetail.protoType = {
+  coinDetailData: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["a"] = (CoinDetail);
+
+/***/ }),
+
 /***/ "./components/inventory/coins/Coins.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -330,8 +522,9 @@ function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Coins_scss__ = __webpack_require__("./components/inventory/coins/Coins.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Coins_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Coins_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__("../node_modules/next/node_modules/prop-types/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Coin__ = __webpack_require__("./components/inventory/coins/Coin.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("../node_modules/next/node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/inventory/coins/Coins.js";
@@ -354,21 +547,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Coins =
 /*#__PURE__*/
 function (_Component) {
   _inherits(Coins, _Component);
 
   function Coins(props) {
-    var _this;
-
     _classCallCheck(this, Coins);
 
-    _this = _possibleConstructorReturn(this, (Coins.__proto__ || Object.getPrototypeOf(Coins)).call(this, props));
-    _this.state = {
-      isFilter: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (Coins.__proto__ || Object.getPrototypeOf(Coins)).call(this, props));
   }
 
   _createClass(Coins, [{
@@ -376,7 +564,8 @@ function (_Component) {
     value: function render() {
       var _props = this.props,
           dataCategories = _props.dataCategories,
-          dataCoins = _props.dataCoins;
+          dataCoins = _props.dataCoins,
+          coinDetail = _props.coinDetail;
       var filterCoin = [];
       var dataCoinsClean = [];
       dataCoins.map(function (coin, index) {
@@ -384,68 +573,28 @@ function (_Component) {
           dataCategories.filter(function (categoryChecked) {
             if (categoryChecked.name === category && categoryChecked.checked === true) {
               filterCoin.push(coin);
-              console.log(dataCoins.lenght, index + 1);
-              console.log(filterCoin);
+              filterCoin.filter(function (coin, index, arra) {
+                arra.map(function (item, pos) {
+                  if (item.id === coin.id && pos !== index) {
+                    arra.splice(pos, 1);
+                  }
+
+                  dataCoinsClean = arra;
+                });
+              });
             }
           });
         });
       });
-      filterCoin.filter(function (coin, index, arra) {
-        arra.map(function (item, pos) {
-          if (item.id === coin.id && pos !== index) {
-            arra.splice(pos, 1);
-          }
-
-          dataCoinsClean = arra;
-          console.log(dataCoinsClean);
-        });
-      }); // if (filterCoin.length === index + 1) {
-      //   filterCoin.filter((coin, index, arra) => {
-      //     arra.map((item, pos) => {
-      //       if (item.id === coin.id && pos !== index) {
-      //         arra.splice(pos, 1);
-      //       }
-      //       dataCoinsClean = arra;
-      //       console.log(dataCoinsClean);
-      //     });
-      //   });
-      // }
-
       var coinsData = dataCoinsClean.map(function (coin) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-          key: coin.id,
-          className: "col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-5",
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Coin__["a" /* default */], {
+          coinData: coin,
+          coinDetail: coinDetail,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 39
           }
-        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-          className: "img-fluid ",
-          src: coin.images[1],
-          alt: "",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 58
-          }
-        }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-          className: "mt-2 coin-title",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 59
-          }
-        }, coin.name), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-          className: "coin-price",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 60
-          }
-        }, coin.price), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-          className: "btn btn-md btn-gold ",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 61
-          }
-        }, "ITEM DETAILS"));
+        });
       });
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
@@ -453,13 +602,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 44
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 45
         }
       }, coinsData));
     }
@@ -469,8 +618,9 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 Coins.propTypes = {
-  dataCoins: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.arrayOf(Object).isRequired,
-  dataCategories: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.arrayOf(Object).isRequired
+  dataCoins: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired,
+  dataCategories: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired,
+  coinDetail: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (Coins);
 
@@ -563,63 +713,93 @@ module.exports = [{
   description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
   price: "$1,690",
   images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["World Coins", "Dimes"]
+  category: ["Gold Coins"]
 }, {
   id: "3",
   name: "MONEDA 3",
   description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
   price: "$1,690",
   images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["Dollars"]
+  category: ["Bullion Coins"]
 }, {
   id: "4",
   name: "MONEDA 4",
   description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
   price: "$1,690",
   images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["Bullion Coins", "Dimes"]
+  category: ["Bullion Coins", "Dimes", "Dollars", "Gold Coins"]
 }, {
   id: "5",
   name: "MONEDA 5",
   description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
   price: "$1,690",
   images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["Dimes", "Dollars"]
-}, {
-  id: "6",
-  name: "1933 Saint-Gaudens Double Eagle",
-  description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
-  price: "$1,690",
-  images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["Gold Coins"]
-}, {
-  id: "7",
-  name: "1787 Brasher Doubloon",
-  description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
-  price: "$1,690",
-  images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["PGCS Graded Coins"]
-}, {
-  id: "8",
-  name: "1794 Flowing",
-  description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
-  price: "$1,690",
-  images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["PGCS Graded Coins"]
-}, {
-  id: "9",
-  name: "1804 Draped Bust Dollar",
-  description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
-  price: "$1,690",
-  images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["Featured Coins"]
-}, {
-  id: "10",
-  name: "1794 Flowing Hair Dollar",
-  description: "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
-  price: "$1,690",
-  images: ["/static/assets/coin_1.png", "/static/assets/coin_2.png", "/static/assets/coin_3.png"],
-  category: ["Featured Coins"]
+  category: ["Dollars"] // {
+  //   id: "6",
+  //   name: "1933 Saint-Gaudens Double Eagle",
+  //   description:
+  //     "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
+  //   price: "$1,690",
+  //   images: [
+  //     "/static/assets/coin_1.png",
+  //     "/static/assets/coin_2.png",
+  //     "/static/assets/coin_3.png"
+  //   ],
+  //   category: ["Gold Coins"]
+  // },
+  // {
+  //   id: "7",
+  //   name: "1787 Brasher Doubloon",
+  //   description:
+  //     "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
+  //   price: "$1,690",
+  //   images: [
+  //     "/static/assets/coin_1.png",
+  //     "/static/assets/coin_2.png",
+  //     "/static/assets/coin_3.png"
+  //   ],
+  //   category: ["PGCS Graded Coins"]
+  // },
+  // {
+  //   id: "8",
+  //   name: "1794 Flowing",
+  //   description:
+  //     "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
+  //   price: "$1,690",
+  //   images: [
+  //     "/static/assets/coin_1.png",
+  //     "/static/assets/coin_2.png",
+  //     "/static/assets/coin_3.png"
+  //   ],
+  //   category: ["PGCS Graded Coins"]
+  // },
+  // {
+  //   id: "9",
+  //   name: "1804 Draped Bust Dollar",
+  //   description:
+  //     "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
+  //   price: "$1,690",
+  //   images: [
+  //     "/static/assets/coin_1.png",
+  //     "/static/assets/coin_2.png",
+  //     "/static/assets/coin_3.png"
+  //   ],
+  //   category: ["Featured Coins"]
+  // },
+  // {
+  //   id: "10",
+  //   name: "1794 Flowing Hair Dollar",
+  //   description:
+  //     "An interesting coin with a bit of red peeking out from the middle of the cent, with more browns and greens near the rim. Most likely from the famous Randall Hoard, with the die crack that the hoard coins almost all have. Feel free to research the hoard, as it is quite a story.",
+  //   price: "$1,690",
+  //   images: [
+  //     "/static/assets/coin_1.png",
+  //     "/static/assets/coin_2.png",
+  //     "/static/assets/coin_3.png"
+  //   ],
+  //   category: ["Featured Coins"]
+  // }
+
 }];
 
 /***/ }),
