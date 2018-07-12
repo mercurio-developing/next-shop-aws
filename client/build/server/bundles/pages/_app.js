@@ -99,13 +99,13 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
       lineNumber: 8
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("ul", {
-    "class": "nav pt-1",
+    className: "nav pt-1",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
-    "class": "nav-item nav-footer",
+    className: "nav-item nav-footer",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -123,7 +123,7 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
       lineNumber: 12
     }
   }, "Contact"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
-    "class": "nav-item nav-footer",
+    className: "nav-item nav-footer",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
@@ -141,7 +141,7 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
       lineNumber: 17
     }
   }, "About"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
-    "class": "nav-item nav-footer",
+    className: "nav-item nav-footer",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20

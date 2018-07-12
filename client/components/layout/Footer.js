@@ -6,18 +6,18 @@ export default () => {
     <>
       <div className="row footer-row fixed-bottom">
         <div className="col-lg-10 col-xl-10 mx-auto my-auto">
-          <ul class="nav pt-1">
-            <li class="nav-item nav-footer">
+          <ul className="nav pt-1">
+            <li className="nav-item nav-footer">
               <Link href="/about">
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
-            <li class="nav-item nav-footer">
+            <li className="nav-item nav-footer">
               <Link href="/contact">
                 <a className="nav-link">About</a>
               </Link>
             </li>
-            <li class="nav-item nav-footer">
+            <li className="nav-item nav-footer">
               <Link href="/privacy">
                 <a className="nav-link">Privacy</a>
               </Link>

@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import Router from "next/router";
+import Proptypes from "prop-types";
 import InventoryStyle from "./Inventory.scss";
-// Mocks
 import categories from "./mocks/categories";
-import coins from "./mocks/data";
 //Components
 import CategoryList from "./CategoryList";
 import Coins from "./coins/Coins";
-import CoinDetail from "./coins/CoinDetail";
 
 class Inventory extends Component {
   constructor(props) {
@@ -15,13 +12,12 @@ class Inventory extends Component {
     this.state = {
       categories,
       allCategories: false,
-      coins,
+      coins: this.props.coins,
       coinDetailData: {},
-      showDetail: true
+      showDetail: false
     };
     this.checkCategory = this.checkCategory.bind(this);
     this.checkAll = this.checkAll.bind(this);
-    this.showCoinDetail = this.showCoinDetail.bind(this);
   }
 
   checkCategory(id) {
@@ -29,17 +25,12 @@ class Inventory extends Component {
     categories[id].checked = !categories[id].checked;
     this.setState({ categories });
   }
+
   checkAll() {
     let categories = this.state.categories;
     let checked = !this.state.allCategories;
     categories.map(category => (category.checked = checked));
     this.setState({ categories, allCategories: checked });
-  }
-
-  showCoinDetail(id) {
-    let coinDetailData = this.state.coins.filter(coin => coin.id === id);
-    let showDetail = !this.state.showDetail;
-    this.setState({ showDetail, coinDetailData });
   }
 
   render() {
@@ -56,17 +47,13 @@ class Inventory extends Component {
             />
           </div>
           <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5">
-            {this.state.showDetail === false ? (
+            {this.state.coins ? (
               <Coins
                 dataCategories={this.state.categories}
                 dataCoins={this.state.coins}
-                coinDetail={this.showCoinDetail}
               />
             ) : (
-              <CoinDetail
-                coinDetail={this.showCoinDetail}
-                coinDetailData={this.state.coinDetailData}
-              />
+              <p>Loading..</p>
             )}
           </div>
         </div>
@@ -74,4 +61,9 @@ class Inventory extends Component {
     );
   }
 }
+
+Inventory.propTypes = {
+  coins: Proptypes.arrayOf(Object).isRequired
+};
+
 export default Inventory;

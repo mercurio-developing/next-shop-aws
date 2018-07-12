@@ -10,12 +10,11 @@ class Coins extends Component {
 
   render() {
     const { dataCategories, dataCoins, coinDetail } = this.props;
-
     let filterCoin = [];
     let dataCoinsClean = [];
-
+    console.log(dataCoins);
     dataCoins.map((coin, index) => {
-      coin.category.filter(category => {
+      coin.categories.filter(category => {
         dataCategories.filter(categoryChecked => {
           if (
             categoryChecked.name === category &&
@@ -24,7 +23,7 @@ class Coins extends Component {
             filterCoin.push(coin);
             filterCoin.filter((coin, index, arra) => {
               arra.map((item, pos) => {
-                if (item.id === coin.id && pos !== index) {
+                if (item._id === coin._id && pos !== index) {
                   arra.splice(pos, 1);
                 }
                 dataCoinsClean = arra;
@@ -36,7 +35,7 @@ class Coins extends Component {
     });
 
     const coinsData = dataCoinsClean.map(coin => (
-      <Coin coinData={coin} coinDetail={coinDetail} />
+      <Coin key={coin._id} coinData={coin} />
     ));
 
     return (
@@ -50,8 +49,7 @@ class Coins extends Component {
 
 Coins.propTypes = {
   dataCoins: Proptypes.arrayOf(Object).isRequired,
-  dataCategories: Proptypes.arrayOf(Object).isRequired,
-  coinDetail: Proptypes.func.isRequired
+  dataCategories: Proptypes.arrayOf(Object).isRequired
 };
 
 export default Coins;

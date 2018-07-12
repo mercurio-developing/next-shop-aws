@@ -23,25 +23,25 @@ class CategoryList extends Component {
               }}
             >
               {allCategories ? (
-                <i class="far fa-check-circle pr-2" />
+                <i className="far fa-check-circle pr-2" />
               ) : (
-                <i class="far fa-circle pr-2" />
+                <i className="far fa-circle pr-2" />
               )}
               All Categories
             </span>
           </li>{" "}
           <ul>
             {dataCategories.map((category, id) => (
-              <li className="pb-1">
+              <li key={id} className="pb-1">
                 <span
                   onClick={() => {
                     checkCategory(id);
                   }}
                 >
                   {category.checked ? (
-                    <i class="far fa-check-circle pr-2" />
+                    <i className="far fa-check-circle pr-2" />
                   ) : (
-                    <i class="far fa-circle pr-2" />
+                    <i className="far fa-circle pr-2" />
                   )}
                   {category.name}
                 </span>
