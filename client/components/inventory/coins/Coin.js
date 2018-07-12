@@ -9,7 +9,7 @@ class Coin extends Component {
         key={coinData.id}
         className="col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-5"
       >
-        <img className="img-fluid " src={coinData.images[1]} alt="" />
+        <img className="img-fluid coin-image" src={coinData.images[1]} alt="" />
         <p className="mt-2 coin-title">{coinData.name}</p>
         <p className="coin-price">{coinData.price}</p>
         <button

@@ -14,7 +14,7 @@ class CategoryList extends Component {
     } = this.props;
 
     return (
-      <div className="row mt-5">
+      <div className="row h-100 mt-5">
         <div className="col-10">
           <li className="ml-4 pb-2">
             <span

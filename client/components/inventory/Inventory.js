@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Router from "next/router";
 import InventoryStyle from "./Inventory.scss";
 // Mocks
 import categories from "./mocks/categories";
@@ -16,7 +17,7 @@ class Inventory extends Component {
       allCategories: false,
       coins,
       coinDetailData: {},
-      showDetail: false
+      showDetail: true
     };
     this.checkCategory = this.checkCategory.bind(this);
     this.checkAll = this.checkAll.bind(this);
@@ -44,8 +45,8 @@ class Inventory extends Component {
   render() {
     return (
       <>
-        <style dangerouslySetInnerHTML={{ __html: InventoryStyle }} />{" "}
-        <div className="row h-100">
+        <style dangerouslySetInnerHTML={{ __html: InventoryStyle }} />
+        <div className="row">
           <div className="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 category-list">
             <CategoryList
               dataCategories={this.state.categories}
@@ -54,7 +55,7 @@ class Inventory extends Component {
               allCategories={this.state.allCategories}
             />
           </div>
-          <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mt-5">
+          <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5">
             {this.state.showDetail === false ? (
               <Coins
                 dataCategories={this.state.categories}

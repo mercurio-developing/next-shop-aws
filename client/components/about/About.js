@@ -8,17 +8,17 @@ class About extends Component {
         <style dangerouslySetInnerHTML={{ __html: AboutStyle }} />{" "}
         <div className="row h-100">
           <div className="container p-0">
-            <div className="row h-50 mt-5">
-              <div className="col-xl-12 col-md-12 col-sm-12 col-12">
+            <div className="row mt-sm-0 mt-md-5">
+              <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-md-5">
                 <div className="row card-about">
-                  <div className="col-xl-6 col-md-6 col-sm-6 col-6 my-auto">
+                  <div className="col-xl-6 col-md-6 col-sm-6 col-6 p-0 my-auto">
                     <img
                       class="img-fluid mx-auto"
                       src="/static/assets/about_img.jpg"
                       alt=""
                     />
                   </div>
-                  <div className="col-xl-6 col-md-6 col-sm-6 col-6 p-5 my-auto text-left">
+                  <div className="col-xl-6 col-md-6 col-sm-6 col-6 p-5 my-auto p-0 text-left">
                     <div className="row">
                       <div className="col-xl-12 col-md-12 col-sm-12 col-12 card-description">
                         <p className="subheader ">
@@ -48,24 +48,24 @@ class About extends Component {
                 </div>
               </div>
             </div>
-            <div className="row h-50">
+            <div className="row h-25 mt-md-5 mt-lg-3">
               <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 my-auto mx-auto">
                 <div className="row">
-                  <div className="col-xl-4 div-lg-4 category-card text-center mx-auto">
+                  <div className="col-xl-4 div-lg-4 col-md-4 category-card text-center mx-auto">
                     <img
                       class="img-bbb img-fluid my-auto"
                       src="/static/assets/about_bbb.png"
                       alt=""
                     />
                   </div>
-                  <div className="col-xl-4 div-lg-4 category-card  text-center mx-auto">
+                  <div className="col-xl-4 div-lg-4 col-md-4 category-card  text-center mx-auto">
                     <img
                       class="img-pccs img-fluid my-auto"
                       src="/static/assets/about_pccs.png"
                       alt=""
                     />{" "}
                   </div>
-                  <div className="col-xl-4 div-lg-4 category-card text-center mx-auto">
+                  <div className="col-xl-4 div-lg-4 col-md-4 category-card text-center mx-auto">
                     <img
                       class="img-ngc img-fluid my-auto"
                       src="/static/assets/about_ngc.png"

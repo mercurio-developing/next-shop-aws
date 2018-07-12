@@ -35,6 +35,10 @@ app.prepare().then(() => {
     .catch(err => console.log(err));
 
   //Routes
+  server.get("/inventory/:id", (req, res) => {
+    console.log(req);
+    return app.render(req, res, "/coinDetail");
+  });
   // authRouter(app, server);
   //dont touch!
   server.get("*", (req, res) => {

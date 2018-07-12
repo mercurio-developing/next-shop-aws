@@ -3,11 +3,17 @@
 // COINS, COIN COMPONENT/////
 ///////////////////////////
 
+// COIN COMPONENT
 .btn-gold{
     @extend %button-primary;
     font-size:16px;
     padding:10px 18px 10px 18px;
 }
+
+.btn-primary{
+    font-size:14px;
+    padding:10px 18px 10px 10px;
+background-color:$blue;}
 .coin-title{
     @extend %mrs-eaveas-sans;
     font-size:20px;
@@ -15,4 +21,38 @@
 .coin-price{
     font-family: Roboto;
     font-size:16px;
+}
+.coin-image{
+    width: 200px;
+}
+
+// DETAIL COIN
+
+.row-card{
+    border:1px solid #d3d3d3;
+    box-shadow: 5px 5px 5px darkgrey;
+}
+
+.img-pinch{
+    width: 500px
+}
+
+.coin-detail-title{
+    @extend %mrs-eaveas-ot-roman;
+}
+.coin-detail-description,
+.coin-detail-categories{
+    @extend %mrs-eaveas-ot-roman
+}
+
+.coin-detail-categories{
+    font-size:14px;
+    color:darkgrey;
+}
+.coin-detail-description{
+    font-size:16px;
+}
+.coin-detail-price{
+    font-family: Roboto;
+    font-size:32px;
 }
