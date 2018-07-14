@@ -13,7 +13,7 @@
 .btn-primary{
     font-size:14px;
     padding:10px 18px 10px 10px;
-background-color:$blue;
+    background-color:$blue;
 }
 .coin-title{
     @extend %mrs-eaveas-sans;
@@ -26,6 +26,16 @@ background-color:$blue;
 .coin-image{
     width: 230px;
 }
+
+label{
+    @extend %mrs-eaveas-sans;
+    font-size:18px;
+}
+
+.form-control:focus {
+    border-color:$lightgrey !important;
+    box-shadow: none;
+  }
 
 //COIN DETAIL
 

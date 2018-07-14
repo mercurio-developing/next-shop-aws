@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -107,45 +107,36 @@ function (_Component) {
   _inherits(CategoryList, _Component);
 
   function CategoryList(props) {
-    var _this;
-
     _classCallCheck(this, CategoryList);
 
-    _this = _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call(this, props));
-    _this.state = {
-      price: false
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call(this, props));
   }
 
   _createClass(CategoryList, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _props = this.props,
           dataCategories = _props.dataCategories,
           checkCategory = _props.checkCategory,
           allCategories = _props.allCategories,
-          checkAll = _props.checkAll,
-          byPrice = _props.byPrice;
+          checkAll = _props.checkAll;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100 mt-5",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 17
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 18
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
         className: "ml-4 pb-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 19
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
         onClick: function onClick() {
@@ -153,24 +144,24 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 20
         }
       }, allCategories ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
         className: "far fa-check-circle pr-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 26
         }
       }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
         className: "far fa-circle pr-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 28
         }
       }), "All Categories")), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("ul", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 33
         }
       }, dataCategories.map(function (category, id) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
@@ -178,7 +169,7 @@ function (_Component) {
           className: "pb-1",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 35
           }
         }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
           onClick: function onClick() {
@@ -186,51 +177,22 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 36
           }
         }, category.checked ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
           className: "far fa-check-circle pr-2",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 42
           }
         }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
           className: "far fa-circle pr-2",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 44
           }
         }), category.name));
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 55
-        }
-      }, "Order by", " ", this.state.price === true ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-        onClick: function onClick() {
-          byPrice();
-
-          _this2.setState({
-            price: !_this2.state.price
-          });
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 58
-        }
-      }, "HIGH PRICE") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-        onClick: function onClick() {
-          byPrice();
-
-          _this2.setState({
-            price: !_this2.state.price
-          });
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 67
-        }
-      }, "LOW PRICE"))));
+      }))));
     }
   }]);
 
@@ -241,8 +203,7 @@ CategoryList.propTypes = {
   dataCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(Object).isRequired,
   checkCategory: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
   checkAll: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  allCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
-  byPrice: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+  allCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (CategoryList);
 
@@ -370,29 +331,27 @@ function (_Component) {
         checkCategory: this.checkCategory,
         checkAll: this.checkAll,
         allCategories: this.state.allCategories,
-        byPrice: this.byPrice,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 49
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5 mt-3",
+        className: "col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5 mt-1",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 56
         }
       }, dataCoins !== null ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__coins_Coins__["a" /* default */], {
         dataCategories: this.state.categories,
         dataCoins: dataCoins,
-        orderByPrice: this.state.orderByPrice,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 58
         }
       }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 63
         }
       }, "LOADING"))));
     }
@@ -416,7 +375,7 @@ Inventory.propTypes = {
 (function () {
   "use strict";
 
-  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\nli {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 700; }\n/*Category List*/\n.category-list {\n  background-color: #3c434c;\n  min-height: 87vh; }\nli {\n  color: #fff;\n  font-size: 14px;\n  list-style: none; }\n";
+  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\nli, .filter-orderby {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 700; }\n/*Category List*/\n.category-list {\n  background-color: #3c434c;\n  min-height: 87vh; }\nli {\n  color: #fff;\n  font-size: 16px;\n  list-style: none;\n  cursor: pointer; }\n.filter-orderby {\n  color: #fff;\n  font-size: 16px;\n  list-style: none;\n  cursor: text; }\n";
 })();
 
 /***/ }),
@@ -531,11 +490,11 @@ Coin.protoType = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Coins_scss__ = __webpack_require__("./components/inventory/coins/Coins.scss");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Coins_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Coins_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Coin__ = __webpack_require__("./components/inventory/coins/Coin.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("prop-types");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Coins_scss__ = __webpack_require__("./components/inventory/coins/Coins.scss");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Coins_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Coins_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Coin__ = __webpack_require__("./components/inventory/coins/Coin.js");
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/inventory/coins/Coins.js";
@@ -550,9 +509,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -565,19 +524,37 @@ function (_Component) {
   _inherits(Coins, _Component);
 
   function Coins(props) {
+    var _this;
+
     _classCallCheck(this, Coins);
 
-    return _possibleConstructorReturn(this, (Coins.__proto__ || Object.getPrototypeOf(Coins)).call(this, props));
+    _this = _possibleConstructorReturn(this, (Coins.__proto__ || Object.getPrototypeOf(Coins)).call(this, props));
+    _this.state = {
+      orderByPrice: true
+    };
+
+    var sortByPrice = _this.sortByPrice.bind(_assertThisInitialized(_this));
+
+    return _this;
   }
 
   _createClass(Coins, [{
+    key: "sortByPrice",
+    value: function sortByPrice() {
+      console.log(this.setState.orderByPrice);
+      this.setState({
+        orderByPrice: !this.state.orderByPrice
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      console.log(this.props.orderByPrice);
+      var _this2 = this;
+
+      console.log(this.state.orderByPrice);
       var _props = this.props,
           dataCategories = _props.dataCategories,
-          dataCoins = _props.dataCoins,
-          orderByPrice = _props.orderByPrice;
+          dataCoins = _props.dataCoins;
       var filterCoin = [];
       var dataCoinsClean = [];
       dataCoins.map(function (coin, index) {
@@ -594,7 +571,7 @@ function (_Component) {
                   dataCoinsClean = arra;
 
                   if (filterCoin.length === index + 1) {
-                    if (orderByPrice === false) {
+                    if (_this2.state.orderByPrice === false) {
                       dataCoinsClean.sort(function (a, b) {
                         Number(a.price) - Number(b.price);
                       });
@@ -611,30 +588,84 @@ function (_Component) {
         });
       });
       var coinsData = dataCoinsClean.map(function (coin) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Coin__["a" /* default */], {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Coin__["a" /* default */], {
           key: coin._id,
           coinData: coin,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 57
           }
         });
       });
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
-          __html: __WEBPACK_IMPORTED_MODULE_1__Coins_scss___default.a
+          __html: __WEBPACK_IMPORTED_MODULE_2__Coins_scss___default.a
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 62
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "col-xl-11 col-lg-11 mr-auto",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "row",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 64
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "col-xl-2 col-lg-2 ml-auto text-right",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+        className: "form-inline",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "form-group",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 68
+        }
+      }, "SORT BY:"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
+        className: "form-control pl-2 ml-2",
+        onClick: function onClick() {
+          _this2.sortByPrice();
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75
+        }
+      }, "Price: Low to High"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76
+        }
+      }, "Price: High to Low"))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 81
         }
-      }, coinsData));
+      }, coinsData))));
     }
   }]);
 
@@ -642,9 +673,8 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 Coins.propTypes = {
-  dataCoins: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired,
-  dataCategories: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired,
-  orderByPrice: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.bool.isRequired
+  dataCoins: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(Object).isRequired,
+  dataCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(Object).isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (Coins);
 
@@ -658,7 +688,7 @@ Coins.propTypes = {
 (function () {
   "use strict";
 
-  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.coin-detail-title, .coin-detail-description,\n.coin-detail-categories {\n  font-family: mrs-eaveas, serif;\n  font-style: normal;\n  font-weight: 400; }\n.validation-error, .validation-success {\n  font-family: mrs-eaveas, serif;\n  font-style: italic;\n  font-weight: 400; }\n.btn-gold, .coin-title {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold {\n  background-color: #e9ab21;\n  color: #fff;\n  border-radius: 4px; }\n.btn-gold {\n  font-size: 16px;\n  padding: 10px 18px 10px 18px; }\n.btn-primary {\n  font-size: 14px;\n  padding: 10px 18px 10px 10px;\n  background-color: #1472b9; }\n.coin-title {\n  font-size: 20px; }\n.coin-price {\n  font-family: Roboto;\n  font-size: 16px; }\n.coin-image {\n  width: 230px; }\n.row-card {\n  border: 1px solid #d3d3d3;\n  box-shadow: 5px 5px 5px darkgrey; }\n.img-thumbnail:hover {\n  border: 1px solid #e9ab21; }\n.img-pinch {\n  width: 500px; }\n.coin-detail-categories {\n  font-size: 14px;\n  color: darkgrey; }\n.coin-detail-description {\n  font-size: 16px; }\n.coin-detail-price {\n  font-family: Roboto;\n  font-size: 32px; }\n.validation-error, .validation-success {\n  font-size: 16px; }\n.validation-error {\n  color: lightcoral; }\n.validation-success {\n  color: darkgreen; }\n";
+  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.coin-detail-title, .coin-detail-description,\n.coin-detail-categories {\n  font-family: mrs-eaveas, serif;\n  font-style: normal;\n  font-weight: 400; }\n.validation-error, .validation-success {\n  font-family: mrs-eaveas, serif;\n  font-style: italic;\n  font-weight: 400; }\n.btn-gold, .coin-title, label {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold {\n  background-color: #e9ab21;\n  color: #fff;\n  border-radius: 4px; }\n.btn-gold {\n  font-size: 16px;\n  padding: 10px 18px 10px 18px; }\n.btn-primary {\n  font-size: 14px;\n  padding: 10px 18px 10px 10px;\n  background-color: #1472b9; }\n.coin-title {\n  font-size: 20px; }\n.coin-price {\n  font-family: Roboto;\n  font-size: 16px; }\n.coin-image {\n  width: 230px; }\nlabel {\n  font-size: 18px; }\n.form-control:focus {\n  border-color: #cdcfd1 !important;\n  box-shadow: none; }\n.row-card {\n  border: 1px solid #d3d3d3;\n  box-shadow: 5px 5px 5px darkgrey; }\n.img-thumbnail:hover {\n  border: 1px solid #e9ab21; }\n.img-pinch {\n  width: 500px; }\n.coin-detail-categories {\n  font-size: 14px;\n  color: darkgrey; }\n.coin-detail-description {\n  font-size: 16px; }\n.coin-detail-price {\n  font-family: Roboto;\n  font-size: 32px; }\n.validation-error, .validation-success {\n  font-size: 16px; }\n.validation-error {\n  color: lightcoral; }\n.validation-success {\n  color: darkgreen; }\n";
 })();
 
 /***/ }),
@@ -823,7 +853,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/inventory.js");

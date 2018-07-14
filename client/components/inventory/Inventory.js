@@ -51,15 +51,13 @@ class Inventory extends Component {
               checkCategory={this.checkCategory}
               checkAll={this.checkAll}
               allCategories={this.state.allCategories}
-              byPrice={this.byPrice}
             />
           </div>
-          <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5 mt-3">
+          <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5 mt-1">
             {dataCoins !== null ? (
               <Coins
                 dataCategories={this.state.categories}
                 dataCoins={dataCoins}
-                orderByPrice={this.state.orderByPrice}
               />
             ) : (
               <p>LOADING</p>
