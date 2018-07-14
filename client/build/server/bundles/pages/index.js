@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -160,13 +160,13 @@ function (_Component) {
           lineNumber: 13
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-        "class": "m-0 hero-title mb-2",
+        className: "m-0 hero-title mb-2",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 14
         }
       }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan id neque vitae laoreet."), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        "class": "btn btn-gold text-center float-right",
+        className: "btn btn-gold text-center float-right",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 18
@@ -178,7 +178,7 @@ function (_Component) {
           lineNumber: 22
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        "class": "img-fluid mx-auto main-banner",
+        className: "img-fluid mx-auto main-banner",
         src: "/static/assets/main_banner.png",
         alt: "",
         __source: {
@@ -198,7 +198,7 @@ function (_Component) {
           lineNumber: 33
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        "class": "img-fluid",
+        className: "img-fluid",
         src: "/static/assets/coin_5.png",
         alt: "",
         __source: {
@@ -206,27 +206,7 @@ function (_Component) {
           lineNumber: 34
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
-        "class": "p-3 card-title",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35
-        }
-      }, "FEATURED COINS"), " "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "col-xl-3 div-lg-3  m-2 p-5 category-card text-center",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        "class": "img-fluid",
-        src: "/static/assets/coin_5.png",
-        alt: "",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
-        "class": "p-3 card-title",
+        className: "p-3 card-title",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
@@ -238,7 +218,7 @@ function (_Component) {
           lineNumber: 41
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        "class": "img-fluid",
+        className: "img-fluid",
         src: "/static/assets/coin_5.png",
         alt: "",
         __source: {
@@ -246,30 +226,50 @@ function (_Component) {
           lineNumber: 42
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
-        "class": "p-3 card-title",
+        className: "p-3 card-title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 47
+        }
+      }, "FEATURED COINS"), " "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "col-xl-3 div-lg-3  m-2 p-5 category-card text-center",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+        className: "img-fluid",
+        src: "/static/assets/coin_5.png",
+        alt: "",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
+        className: "p-3 card-title",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
         }
       }, "FEATURED COINS"), " "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "category-card  text-center mx-auto p-5  ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 57
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-        "class": "img-fluid pt-3",
+        className: "img-fluid pt-3",
         src: "/static/assets/main_gurantee.png",
         alt: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 58
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
-        "class": "card-customer mt-4",
+        className: "card-customer mt-4",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 63
         }
       }, "100% Customers Satisfaction Guarantee"), " ")))));
     }
@@ -319,7 +319,7 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/pages/index.js
 
 /***/ }),
 
-/***/ 6:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");

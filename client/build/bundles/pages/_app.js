@@ -15329,6 +15329,7 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
     }
   }, "CONTACT")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
     href: "/inventory",
+    prefetch: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36
@@ -15341,6 +15342,7 @@ var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/lay
     }
   }, "INVENTORY")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
     href: "/cart",
+    prefetch: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 39

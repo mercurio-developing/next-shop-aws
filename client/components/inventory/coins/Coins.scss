@@ -24,14 +24,18 @@ background-color:$blue;
     font-size:16px;
 }
 .coin-image{
-    width: 200px;
+    width: 230px;
 }
 
-// DETAIL COIN
+//COIN DETAIL
 
 .row-card{
     border:1px solid #d3d3d3;
     box-shadow: 5px 5px 5px darkgrey;
+}
+
+.img-thumbnail:hover{
+    border:1px solid $yellow
 }
 
 .img-pinch{
@@ -56,4 +60,17 @@ background-color:$blue;
 .coin-detail-price{
     font-family: Roboto;
     font-size:32px;
+}
+
+.validation-error, .validation-success{
+    @extend %mrs-eaveas-ot-italic;
+    font-size:16px;
+}
+
+.validation-error{ 
+    color:lightcoral
+}
+.validation-success{
+    color:darkgreen
+
 }

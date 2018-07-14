@@ -41,7 +41,7 @@ db.once("open", function() {
     }
   }
   async function doBoth() {
-    await seedCoins();
+    // await seedCoins();
     // await dropDatabase();
   }
   doBoth();

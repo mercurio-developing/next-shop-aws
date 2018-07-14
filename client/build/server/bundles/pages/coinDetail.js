@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -80,11 +80,13 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router__ = __webpack_require__("next/router");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__("prop-types");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pinchZoom_PinchZoom_js__ = __webpack_require__("./components/inventory/pinchZoom/PinchZoom.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Coins_scss__ = __webpack_require__("./components/inventory/coins/Coins.scss");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Coins_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Coins_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__("axios");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pinchZoom_PinchZoom_js__ = __webpack_require__("./components/inventory/pinchZoom/PinchZoom.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Coins_scss__ = __webpack_require__("./components/inventory/coins/Coins.scss");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Coins_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__Coins_scss__);
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/components/inventory/coins/CoinDetail.js";
@@ -109,6 +111,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var CoinDetail =
 /*#__PURE__*/
 function (_Component) {
@@ -121,7 +124,11 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (CoinDetail.__proto__ || Object.getPrototypeOf(CoinDetail)).call(this, props));
     _this.state = {
-      imgSelect: _this.props.coinDetailData.images[0]
+      imgSelect: _this.props.coinDetailData.images[0],
+      validationCart: {
+        status: "",
+        data: ""
+      }
     };
     _this.addCoinToCart = _this.addCoinToCart.bind(_assertThisInitialized(_this));
     _this.changeImg = _this.changeImg.bind(_assertThisInitialized(_this));
@@ -146,81 +153,100 @@ function (_Component) {
     }
   }, {
     key: "addCoinToCart",
-    value: function addCoinToCart(id) {// let coin = coinDetailData[id];
-      // console.log("coin added");
-      // let data = axios.post("/addToCart", coin);
-      // console.log(data);
+    value: function addCoinToCart() {
+      var _this2 = this;
+
+      var coin = this.props.coinDetailData;
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post("/addToCart", coin).then(function (res) {
+        console.log(res);
+
+        _this2.setState({
+          validationCart: {
+            status: res.status,
+            data: res.data
+          }
+        });
+      }).catch(function (err) {
+        console.log(err.response);
+
+        _this2.setState({
+          validationCart: {
+            status: err.response.status,
+            data: err.response.data.err
+          }
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var coinDetailData = this.props.coinDetailData;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
-          __html: __WEBPACK_IMPORTED_MODULE_4__Coins_scss___default.a
+          __html: __WEBPACK_IMPORTED_MODULE_5__Coins_scss___default.a
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 59
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100 p-4",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 60
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "col-xl-12 col-lg-12",
+        className: "col-xl-10 mx-auto col-lg-10 mx-auto",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 61
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row ",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 62
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "btn btn-primary btn-md",
         onClick: this.comeBack,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 63
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
-        "class": "fas fa-arrow-left pr-2",
+        className: "fas fa-arrow-left pr-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 67
         }
       }), "Back to Inventory")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100 mt-xl-4 mt-lg-4",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 71
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-6 col-lg-8 p-0",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 72
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row text-center  h-75",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 73
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__pinchZoom_PinchZoom_js__["a" /* default */], {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__pinchZoom_PinchZoom_js__["a" /* default */], {
         initialScale: "0",
         minScale: "1",
         maxScale: "10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 74
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
         className: "img-pinch",
@@ -228,114 +254,140 @@ function (_Component) {
         alt: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 75
         }
       }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row mt-3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 82
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-5 col-lg-5 mx-auto",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 83
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 84
         }
       }, coinDetailData.images.map(function (img, index) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          key: index,
           className: "col-lg-6 col-xl-6",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 86
           }
         }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-          key: index,
           className: "img-thumbnail",
           src: img,
           alt: "",
           onClick: function onClick() {
-            _this2.changeImg(index);
+            _this3.changeImg(index);
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 87
           }
         }));
       }))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-4 col-lg-4  mx-auto",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 101
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row row-card p-3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 102
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-12 col-lg-12 text-left",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 103
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
-        "class": "coin-detail-title mt-4",
+        className: "coin-detail-title mt-4",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 104
         }
       }, coinDetailData.name, " "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         className: "coin-detail-description mt-3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 107
         }
       }, coinDetailData.description), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         className: "coin-detail-categories",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 110
         }
-      }, coinDetailData.categories), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }, coinDetailData.categories.map(function (coin, index) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+          key: index,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112
+          }
+        }, "  ", coin);
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row mt-5",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 118
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-6 col-lg-6",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 119
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-        "class": "coin-detail-price",
+        className: "coin-detail-price",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 120
         }
       }, coinDetailData.price)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-6 col-lg-6",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 124
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        onClick: this.addCoinToCart("2"),
+        onClick: this.addCoinToCart,
         className: "btn btn-gold",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 125
         }
-      }, "ADD TO CART"))))))))));
+      }, "ADD TO CART"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "row",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 133
+        }
+      }, this.state.validationCart.status === 401 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        className: "validation-error ml-auto pr-4",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 135
+        }
+      }, this.state.validationCart.data) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        className: "validation-success ml-auto pr-4",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 139
+        }
+      }, this.state.validationCart.data)))))))));
     }
   }]);
 
@@ -343,7 +395,7 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 CoinDetail.protoType = {
-  coinDetailData: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.object.isRequired
+  coinDetailData: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (CoinDetail);
 
@@ -357,7 +409,7 @@ CoinDetail.protoType = {
 (function () {
   "use strict";
 
-  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.coin-detail-title, .coin-detail-description,\n.coin-detail-categories {\n  font-family: mrs-eaveas, serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold, .coin-title {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold {\n  background-color: #e9ab21;\n  color: #fff;\n  border-radius: 4px; }\n.btn-gold {\n  font-size: 16px;\n  padding: 10px 18px 10px 18px; }\n.btn-primary {\n  font-size: 14px;\n  padding: 10px 18px 10px 10px;\n  background-color: #1472b9; }\n.coin-title {\n  font-size: 20px; }\n.coin-price {\n  font-family: Roboto;\n  font-size: 16px; }\n.coin-image {\n  width: 200px; }\n.row-card {\n  border: 1px solid #d3d3d3;\n  box-shadow: 5px 5px 5px darkgrey; }\n.img-pinch {\n  width: 500px; }\n.coin-detail-categories {\n  font-size: 14px;\n  color: darkgrey; }\n.coin-detail-description {\n  font-size: 16px; }\n.coin-detail-price {\n  font-family: Roboto;\n  font-size: 32px; }\n";
+  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.coin-detail-title, .coin-detail-description,\n.coin-detail-categories {\n  font-family: mrs-eaveas, serif;\n  font-style: normal;\n  font-weight: 400; }\n.validation-error, .validation-success {\n  font-family: mrs-eaveas, serif;\n  font-style: italic;\n  font-weight: 400; }\n.btn-gold, .coin-title {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold {\n  background-color: #e9ab21;\n  color: #fff;\n  border-radius: 4px; }\n.btn-gold {\n  font-size: 16px;\n  padding: 10px 18px 10px 18px; }\n.btn-primary {\n  font-size: 14px;\n  padding: 10px 18px 10px 10px;\n  background-color: #1472b9; }\n.coin-title {\n  font-size: 20px; }\n.coin-price {\n  font-family: Roboto;\n  font-size: 16px; }\n.coin-image {\n  width: 230px; }\n.row-card {\n  border: 1px solid #d3d3d3;\n  box-shadow: 5px 5px 5px darkgrey; }\n.img-thumbnail:hover {\n  border: 1px solid #e9ab21; }\n.img-pinch {\n  width: 500px; }\n.coin-detail-categories {\n  font-size: 14px;\n  color: darkgrey; }\n.coin-detail-description {\n  font-size: 16px; }\n.coin-detail-price {\n  font-family: Roboto;\n  font-size: 32px; }\n.validation-error, .validation-success {\n  font-size: 16px; }\n.validation-error {\n  color: lightcoral; }\n.validation-success {\n  color: darkgreen; }\n";
 })();
 
 /***/ }),
@@ -448,7 +500,7 @@ var ZoomOutButton = function ZoomOutButton(_ref2) {
       lineNumber: 39
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
-    "class": "fas fa-minus",
+    className: "fas fa-minus",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 45
@@ -472,7 +524,7 @@ var ZoomInButton = function ZoomInButton(_ref3) {
       lineNumber: 50
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
-    "class": "fas fa-plus",
+    className: "fas fa-plus",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 56
@@ -1099,7 +1151,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/coinDetail.js");
@@ -1111,6 +1163,13 @@ module.exports = __webpack_require__("./pages/coinDetail.js");
 /***/ (function(module, exports) {
 
 module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "axios":
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
 
 /***/ }),
 

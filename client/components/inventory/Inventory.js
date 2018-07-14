@@ -12,12 +12,13 @@ class Inventory extends Component {
     this.state = {
       categories,
       allCategories: false,
-      coins: this.props.coins,
       coinDetailData: {},
-      showDetail: false
+      showDetail: false,
+      orderByPrice: true
     };
     this.checkCategory = this.checkCategory.bind(this);
     this.checkAll = this.checkAll.bind(this);
+    this.byPrice = this.byPrice.bind(this);
   }
 
   checkCategory(id) {
@@ -33,7 +34,13 @@ class Inventory extends Component {
     this.setState({ categories, allCategories: checked });
   }
 
+  byPrice() {
+    this.setState({ orderByPrice: !this.state.orderByPrice });
+  }
+
   render() {
+    const { dataCoins } = this.props;
+
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: InventoryStyle }} />
@@ -44,16 +51,18 @@ class Inventory extends Component {
               checkCategory={this.checkCategory}
               checkAll={this.checkAll}
               allCategories={this.state.allCategories}
+              byPrice={this.byPrice}
             />
           </div>
-          <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5">
-            {this.state.coins ? (
+          <div className="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5 mt-3">
+            {dataCoins !== null ? (
               <Coins
                 dataCategories={this.state.categories}
-                dataCoins={this.state.coins}
+                dataCoins={dataCoins}
+                orderByPrice={this.state.orderByPrice}
               />
             ) : (
-              <p>Loading..</p>
+              <p>LOADING</p>
             )}
           </div>
         </div>
@@ -63,7 +72,7 @@ class Inventory extends Component {
 }
 
 Inventory.propTypes = {
-  coins: Proptypes.arrayOf(Object).isRequired
+  dataCoins: Proptypes.arrayOf(Object).isRequired
 };
 
 export default Inventory;

@@ -9,10 +9,10 @@ class Coins extends Component {
   }
 
   render() {
-    const { dataCategories, dataCoins, coinDetail } = this.props;
+    console.log(this.props.orderByPrice);
+    const { dataCategories, dataCoins, orderByPrice } = this.props;
     let filterCoin = [];
     let dataCoinsClean = [];
-    console.log(dataCoins);
     dataCoins.map((coin, index) => {
       coin.categories.filter(category => {
         dataCategories.filter(categoryChecked => {
@@ -27,6 +27,17 @@ class Coins extends Component {
                   arra.splice(pos, 1);
                 }
                 dataCoinsClean = arra;
+                if (filterCoin.length === index + 1) {
+                  if (orderByPrice === false) {
+                    dataCoinsClean.sort((a, b) => {
+                      Number(a.price) - Number(b.price);
+                    });
+                  } else {
+                    dataCoinsClean.sort(
+                      (a, b) => Number(a.price) - Number(b.price)
+                    );
+                  }
+                }
               });
             });
           }
@@ -49,7 +60,8 @@ class Coins extends Component {
 
 Coins.propTypes = {
   dataCoins: Proptypes.arrayOf(Object).isRequired,
-  dataCategories: Proptypes.arrayOf(Object).isRequired
+  dataCategories: Proptypes.arrayOf(Object).isRequired,
+  orderByPrice: Proptypes.bool.isRequired
 };
 
 export default Coins;

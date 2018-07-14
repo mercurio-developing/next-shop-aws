@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/contact', function() {
           var comp =
-      webpackJsonp([7],{
+      webpackJsonp([8],{
 
 /***/ "../node_modules/webpack/buildin/harmony-module.js":
 /***/ (function(module, exports) {
@@ -115,7 +115,7 @@ function (_Component) {
           lineNumber: 13
         }
       }, "CONTACT US"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        "class": "form-group mt-3",
+        className: "form-group mt-3",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 14

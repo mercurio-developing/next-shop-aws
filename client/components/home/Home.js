@@ -11,17 +11,17 @@ class Home extends Component {
               <div className="container p-0">
                 <div className="row h-100">
                   <div className="col-xl-6 col-md-6 col-sm-6 col-6 my-auto">
-                    <p class="m-0 hero-title mb-2">
+                    <p className="m-0 hero-title mb-2">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Vivamus accumsan id neque vitae laoreet.
                     </p>
-                    <button class="btn btn-gold text-center float-right">
+                    <button className="btn btn-gold text-center float-right">
                       SEE INVENTORY
                     </button>
                   </div>
                   <div className="col-xl-6 col-md-6 col-sm-6 col-6 my-auto p-5 text-center">
                     <img
-                      class="img-fluid mx-auto main-banner"
+                      className="img-fluid mx-auto main-banner"
                       src="/static/assets/main_banner.png"
                       alt=""
                     />
@@ -31,24 +31,36 @@ class Home extends Component {
             </div>
             <div className="row p-3 h-50">
               <div className="col-xl-3 div-lg-3  m-2 p-5 category-card text-center">
-                <img class="img-fluid" src="/static/assets/coin_5.png" alt="" />
-                <h4 class="p-3 card-title">FEATURED COINS</h4>{" "}
+                <img
+                  className="img-fluid"
+                  src="/static/assets/coin_5.png"
+                  alt=""
+                />
+                <h4 className="p-3 card-title">FEATURED COINS</h4>{" "}
               </div>
               <div className="col-xl-3 div-lg-3  m-2 p-5 category-card text-center">
-                <img class="img-fluid" src="/static/assets/coin_5.png" alt="" />
-                <h4 class="p-3 card-title">FEATURED COINS</h4>{" "}
+                <img
+                  className="img-fluid"
+                  src="/static/assets/coin_5.png"
+                  alt=""
+                />
+                <h4 className="p-3 card-title">FEATURED COINS</h4>{" "}
               </div>
               <div className="col-xl-3 div-lg-3  m-2 p-5 category-card text-center">
-                <img class="img-fluid" src="/static/assets/coin_5.png" alt="" />
-                <h4 class="p-3 card-title">FEATURED COINS</h4>{" "}
+                <img
+                  className="img-fluid"
+                  src="/static/assets/coin_5.png"
+                  alt=""
+                />
+                <h4 className="p-3 card-title">FEATURED COINS</h4>{" "}
               </div>
               <div className="category-card  text-center mx-auto p-5  ">
                 <img
-                  class="img-fluid pt-3"
+                  className="img-fluid pt-3"
                   src="/static/assets/main_gurantee.png"
                   alt=""
                 />
-                <h4 class="card-customer mt-4">
+                <h4 className="card-customer mt-4">
                   100% Customers Satisfaction Guarantee
                 </h4>{" "}
               </div>

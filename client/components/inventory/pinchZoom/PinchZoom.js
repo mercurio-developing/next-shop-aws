@@ -42,7 +42,7 @@ const ZoomOutButton = ({ disabled, onClick }) => (
     onClick={onClick}
     disabled={disabled}
   >
-    <i class="fas fa-minus" />{" "}
+    <i className="fas fa-minus" />{" "}
   </button>
 );
 
@@ -53,7 +53,7 @@ const ZoomInButton = ({ disabled, onClick }) => (
     onClick={onClick}
     disabled={disabled}
   >
-    <i class="fas fa-plus" />
+    <i className="fas fa-plus" />
   </button>
 );
 

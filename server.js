@@ -47,12 +47,14 @@ app.prepare().then(() => {
     })
   );
   //Routes
-  server.get("/inventory", (req, res) => {
+  server.get("/api/all-coins", (req, res) => {
     Coin.find({}).then(coins => {
-      return app.render(req, res, "/inventory", { query: coins });
+      res.send(coins).status(201);
     });
   });
-
+  server.get("/api/coinsInCart", (req, res) => {
+    res.send(req.session.cart).status(201);
+  });
   server.get("/inventory/:id", (req, res) => {
     let id = req.params.id;
     Coin.findById(id).then(coin => {
@@ -60,20 +62,49 @@ app.prepare().then(() => {
     });
   });
 
+  server.post("/delete-coin", (req, res) => {
+    let id = req.body.id;
+    console.log(id);
+    req.session.cart.map((coin, index) => {
+      if (coin._id === id) {
+        req.session.cart.splice(index, 1);
+        res.status(201);
+        res.send("Coin be deleted");
+      }
+    });
+  });
+
   server.post("/addToCart", (req, res) => {
     if (!req.session.cart) {
       req.session.cart = [];
     }
-    let coin = new Object({
-      id: req.body.id,
+    let newCoin = new Object({
+      _id: req.body._id,
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
       images: req.body.images,
-      category: req.body.category
+      categories: req.body.categories,
+      dateCreated: req.body.dateCreated
     });
-    req.session.cart.push(coin);
-    res.send("coin added to the shopping cart").status(201);
+    if (req.session.cart.length === 0) {
+      req.session.cart.push(newCoin);
+      res.status(201);
+      res.send("Coin added to your cart");
+    } else {
+      req.session.cart.map((coin, index) => {
+        console.log(index + 1, req.session.cart.length);
+        if (coin._id === newCoin._id) {
+          console.log("This coin is already in the cart");
+          res.status(401);
+          res.send({ err: "This coin is already in your cart" });
+        } else if (index + 1 === req.session.cart.length) {
+          req.session.cart.push(newCoin);
+          res.status(201);
+          res.send("Coin added to your cart");
+        }
+      });
+    }
   });
 
   // authRouter(app, server);

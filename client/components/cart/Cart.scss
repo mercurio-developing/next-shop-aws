@@ -1,0 +1,68 @@
+@import './index.scss';
+// ///////////////////
+//CART COMPONENT/////
+//////////////////////
+
+.cart-row{
+    border:1px solid darkgrey;
+    min-height: 80%;
+}
+.label-header{
+    @extend %mrs-eaveas-sans;
+    font-size:24px;
+    color:black;
+    opacity:0.8;
+}
+label{
+    @extend %mrs-eaveas-sans;
+    font-size:18px;
+}
+.items-row{
+    background-color:$lightgrey 
+}
+.cart-items{
+    background-color:#fff;
+    box-shadow:3px 3px 3px 2px darkgrey;
+}
+.cart-img{
+    width:140px;
+}
+
+.coin-name{
+    @extend %mrs-eaveas-ot-roman;
+    font-size:18px;
+}
+
+.coin-price{
+    font-family:Roboto;
+    font-size:18px;
+}
+
+.fa-trash-alt{
+    font-size:20px;
+}
+
+// ORDER
+
+.order-row{
+    @extend %mrs-eaveas-sans;
+    font-size:18px;
+}
+
+.order-price{
+    font-family:Roboto;
+    font-size:18px;
+}
+
+.order-shipping{
+    font-family:Roboto;
+    font-size:14px;
+}
+
+.line{
+    border-bottom:0.50px solid darkgrey;
+}
+.btn-gold{
+    @extend %button-primary;
+}
+

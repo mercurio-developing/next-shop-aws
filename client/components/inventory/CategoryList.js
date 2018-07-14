@@ -3,6 +3,9 @@ import Proptypes from "prop-types";
 class CategoryList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      price: false
+    };
   }
 
   render() {
@@ -10,7 +13,8 @@ class CategoryList extends Component {
       dataCategories,
       checkCategory,
       allCategories,
-      checkAll
+      checkAll,
+      byPrice
     } = this.props;
 
     return (
@@ -48,6 +52,28 @@ class CategoryList extends Component {
               </li>
             ))}
           </ul>
+          <span>
+            Order by{" "}
+            {this.state.price === true ? (
+              <p
+                onClick={() => {
+                  byPrice();
+                  this.setState({ price: !this.state.price });
+                }}
+              >
+                HIGH PRICE
+              </p>
+            ) : (
+              <p
+                onClick={() => {
+                  byPrice();
+                  this.setState({ price: !this.state.price });
+                }}
+              >
+                LOW PRICE
+              </p>
+            )}
+          </span>
         </div>
       </div>
     );
@@ -57,6 +83,7 @@ CategoryList.propTypes = {
   dataCategories: Proptypes.arrayOf(Object).isRequired,
   checkCategory: Proptypes.func.isRequired,
   checkAll: Proptypes.func.isRequired,
-  allCategories: Proptypes.bool.isRequired
+  allCategories: Proptypes.bool.isRequired,
+  byPrice: Proptypes.func.isRequired
 };
 export default CategoryList;

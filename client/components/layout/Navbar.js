@@ -33,10 +33,10 @@ export default () => {
                 <Link href="/contact">
                   <a className="nav-item nav-link active">CONTACT</a>
                 </Link>
-                <Link href="/inventory">
+                <Link href="/inventory" prefetch>
                   <a className="nav-item nav-link active">INVENTORY</a>
                 </Link>
-                <Link href="/cart">
+                <Link href="/cart" prefetch>
                   <a className="nav-item nav-link">
                     <img src="/static/assets/cart.png" alt="" />
                   </a>

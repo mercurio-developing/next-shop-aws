@@ -13,7 +13,7 @@ class About extends Component {
                 <div className="row card-about">
                   <div className="col-xl-6 col-md-6 col-sm-6 col-6 p-0 my-auto">
                     <img
-                      class="img-fluid mx-auto"
+                      className="img-fluid mx-auto"
                       src="/static/assets/about_img.jpg"
                       alt=""
                     />
@@ -35,7 +35,7 @@ class About extends Component {
                         </p>
                         <div className="row mt-5">
                           <div className="col-xl-1 col-lg-1 pt-1">
-                            <i class="fas fa-user-circle" />
+                            <i className="fas fa-user-circle" />
                           </div>
                           <div className="col-xl-11 col-lg-11 owner">
                             <p className="m-0">NATHAN WINTERFIELD</p>
@@ -53,21 +53,21 @@ class About extends Component {
                 <div className="row">
                   <div className="col-xl-4 div-lg-4 col-md-4 category-card text-center mx-auto">
                     <img
-                      class="img-bbb img-fluid my-auto"
+                      className="img-bbb img-fluid my-auto"
                       src="/static/assets/about_bbb.png"
                       alt=""
                     />
                   </div>
                   <div className="col-xl-4 div-lg-4 col-md-4 category-card  text-center mx-auto">
                     <img
-                      class="img-pccs img-fluid my-auto"
+                      className="img-pccs img-fluid my-auto"
                       src="/static/assets/about_pccs.png"
                       alt=""
                     />{" "}
                   </div>
                   <div className="col-xl-4 div-lg-4 col-md-4 category-card text-center mx-auto">
                     <img
-                      class="img-ngc img-fluid my-auto"
+                      className="img-ngc img-fluid my-auto"
                       src="/static/assets/about_ngc.png"
                       alt=""
                     />

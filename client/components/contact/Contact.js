@@ -11,7 +11,7 @@ class Contact extends Component {
             <div className="col-xl-8 col-lg-8 text-left mx-auto my-auto pb-5">
               <form className="">
                 <h4>CONTACT US</h4>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label>FULL NAME</label>
                   <input
                     type="email"

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Router from "next/router";
+import axios from "axios";
 
 import Proptypes from "prop-types";
 import PinchZoom from "../pinchZoom/PinchZoom.js";
@@ -9,7 +10,8 @@ class CoinDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgSelect: this.props.coinDetailData.images[0]
+      imgSelect: this.props.coinDetailData.images[0],
+      validationCart: { status: "", data: "" }
     };
     this.addCoinToCart = this.addCoinToCart.bind(this);
     this.changeImg = this.changeImg.bind(this);
@@ -27,11 +29,28 @@ class CoinDetail extends Component {
     });
   }
 
-  addCoinToCart(id) {
-    // let coin = coinDetailData[id];
-    // console.log("coin added");
-    // let data = axios.post("/addToCart", coin);
-    // console.log(data);
+  addCoinToCart() {
+    let coin = this.props.coinDetailData;
+    axios
+      .post("/addToCart", coin)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          validationCart: {
+            status: res.status,
+            data: res.data
+          }
+        });
+      })
+      .catch(err => {
+        console.log(err.response);
+        this.setState({
+          validationCart: {
+            status: err.response.status,
+            data: err.response.data.err
+          }
+        });
+      });
   }
   render() {
     const { coinDetailData } = this.props;
@@ -39,13 +58,13 @@ class CoinDetail extends Component {
       <>
         <style dangerouslySetInnerHTML={{ __html: CoinStyle }} />
         <div className="row h-100 p-4">
-          <div className="col-xl-12 col-lg-12">
+          <div className="col-xl-10 mx-auto col-lg-10 mx-auto">
             <div className="row ">
               <button
                 className="btn btn-primary btn-md"
                 onClick={this.comeBack}
               >
-                <i class="fas fa-arrow-left pr-2" />
+                <i className="fas fa-arrow-left pr-2" />
                 Back to Inventory
               </button>
             </div>
@@ -64,9 +83,8 @@ class CoinDetail extends Component {
                   <div className="col-xl-5 col-lg-5 mx-auto">
                     <div className="row">
                       {coinDetailData.images.map((img, index) => (
-                        <div className="col-lg-6 col-xl-6">
+                        <div key={index} className="col-lg-6 col-xl-6">
                           <img
-                            key={index}
                             className="img-thumbnail"
                             src={img}
                             alt=""
@@ -83,27 +101,45 @@ class CoinDetail extends Component {
               <div className="col-xl-4 col-lg-4  mx-auto">
                 <div className="row row-card p-3">
                   <div className="col-xl-12 col-lg-12 text-left">
-                    <h3 class="coin-detail-title mt-4">
+                    <h3 className="coin-detail-title mt-4">
                       {coinDetailData.name}{" "}
                     </h3>
                     <p className="coin-detail-description mt-3">
                       {coinDetailData.description}
                     </p>
                     <p className="coin-detail-categories">
-                      {coinDetailData.categories}
+                      {coinDetailData.categories.map((coin, index) => (
+                        <span key={index}>
+                          {"  "}
+                          {coin}
+                        </span>
+                      ))}
                     </p>
                     <div className="row mt-5">
                       <div className="col-xl-6 col-lg-6">
-                        <p class="coin-detail-price">{coinDetailData.price}</p>
+                        <p className="coin-detail-price">
+                          {coinDetailData.price}
+                        </p>
                       </div>
                       <div className="col-xl-6 col-lg-6">
                         <button
-                          onClick={this.addCoinToCart("2")}
+                          onClick={this.addCoinToCart}
                           className="btn btn-gold"
                         >
                           ADD TO CART
                         </button>
                       </div>
+                    </div>
+                    <div className="row">
+                      {this.state.validationCart.status === 401 ? (
+                        <p className="validation-error ml-auto pr-4">
+                          {this.state.validationCart.data}
+                        </p>
+                      ) : (
+                        <p className="validation-success ml-auto pr-4">
+                          {this.state.validationCart.data}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>

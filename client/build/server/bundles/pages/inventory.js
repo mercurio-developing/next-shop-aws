@@ -107,36 +107,45 @@ function (_Component) {
   _inherits(CategoryList, _Component);
 
   function CategoryList(props) {
+    var _this;
+
     _classCallCheck(this, CategoryList);
 
-    return _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call(this, props));
+    _this = _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call(this, props));
+    _this.state = {
+      price: false
+    };
+    return _this;
   }
 
   _createClass(CategoryList, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _props = this.props,
           dataCategories = _props.dataCategories,
           checkCategory = _props.checkCategory,
           allCategories = _props.allCategories,
-          checkAll = _props.checkAll;
+          checkAll = _props.checkAll,
+          byPrice = _props.byPrice;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100 mt-5",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 21
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-10",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 22
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
         className: "ml-4 pb-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 23
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
         onClick: function onClick() {
@@ -144,24 +153,24 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 24
         }
       }, allCategories ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
         className: "far fa-check-circle pr-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 30
         }
       }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
         className: "far fa-circle pr-2",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 32
         }
       }), "All Categories")), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("ul", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 37
         }
       }, dataCategories.map(function (category, id) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", {
@@ -169,7 +178,7 @@ function (_Component) {
           className: "pb-1",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 39
           }
         }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
           onClick: function onClick() {
@@ -177,22 +186,51 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 40
           }
         }, category.checked ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
           className: "far fa-check-circle pr-2",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 46
           }
         }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
           className: "far fa-circle pr-2",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44
+            lineNumber: 48
           }
         }), category.name));
-      }))));
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
+        }
+      }, "Order by", " ", this.state.price === true ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        onClick: function onClick() {
+          byPrice();
+
+          _this2.setState({
+            price: !_this2.state.price
+          });
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58
+        }
+      }, "HIGH PRICE") : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
+        onClick: function onClick() {
+          byPrice();
+
+          _this2.setState({
+            price: !_this2.state.price
+          });
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        }
+      }, "LOW PRICE"))));
     }
   }]);
 
@@ -203,7 +241,8 @@ CategoryList.propTypes = {
   dataCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(Object).isRequired,
   checkCategory: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
   checkAll: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  allCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired
+  allCategories: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool.isRequired,
+  byPrice: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (CategoryList);
 
@@ -263,12 +302,13 @@ function (_Component) {
     _this.state = {
       categories: __WEBPACK_IMPORTED_MODULE_3__mocks_categories___default.a,
       allCategories: false,
-      coins: _this.props.coins,
       coinDetailData: {},
-      showDetail: false
+      showDetail: false,
+      orderByPrice: true
     };
     _this.checkCategory = _this.checkCategory.bind(_assertThisInitialized(_this));
     _this.checkAll = _this.checkAll.bind(_assertThisInitialized(_this));
+    _this.byPrice = _this.byPrice.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -295,56 +335,66 @@ function (_Component) {
       });
     }
   }, {
+    key: "byPrice",
+    value: function byPrice() {
+      this.setState({
+        orderByPrice: !this.state.orderByPrice
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var dataCoins = this.props.dataCoins;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment, null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
         dangerouslySetInnerHTML: {
           __html: __WEBPACK_IMPORTED_MODULE_2__Inventory_scss___default.a
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 46
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 47
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 category-list",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 48
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__CategoryList__["a" /* default */], {
         dataCategories: this.state.categories,
         checkCategory: this.checkCategory,
         checkAll: this.checkAll,
         allCategories: this.state.allCategories,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 42
-        }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: "col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5",
+        byPrice: this.byPrice,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 49
         }
-      }, this.state.coins ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__coins_Coins__["a" /* default */], {
-        dataCategories: this.state.categories,
-        dataCoins: this.state.coins,
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 mb-5 mt-3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 57
+        }
+      }, dataCoins !== null ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__coins_Coins__["a" /* default */], {
+        dataCategories: this.state.categories,
+        dataCoins: dataCoins,
+        orderByPrice: this.state.orderByPrice,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
         }
       }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 65
         }
-      }, "Loading.."))));
+      }, "LOADING"))));
     }
   }]);
 
@@ -352,7 +402,7 @@ function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 Inventory.propTypes = {
-  coins: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(Object).isRequired
+  dataCoins: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(Object).isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (Inventory);
 
@@ -429,37 +479,37 @@ function (_Component) {
           coinDetail = _props.coinDetail;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         key: coinData._id,
-        className: "col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-5",
+        className: "col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-3",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 14
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+      }, ">", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
         className: "img-fluid coin-image",
         src: coinData.images[1],
         alt: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 19
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
-        className: "mt-2 coin-title",
+        className: "m-0 p-1 coin-title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 20
         }
       }, coinData.name), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         className: "coin-price",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 21
         }
-      }, coinData.price), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
+      }, "$", coinData.price), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "btn btn-md btn-gold",
         onClick: this.showCoinDetail.bind(this, coinData._id),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 22
         }
       }, "ITEM DETAILS"));
     }
@@ -523,13 +573,13 @@ function (_Component) {
   _createClass(Coins, [{
     key: "render",
     value: function render() {
+      console.log(this.props.orderByPrice);
       var _props = this.props,
           dataCategories = _props.dataCategories,
           dataCoins = _props.dataCoins,
-          coinDetail = _props.coinDetail;
+          orderByPrice = _props.orderByPrice;
       var filterCoin = [];
       var dataCoinsClean = [];
-      console.log(dataCoins);
       dataCoins.map(function (coin, index) {
         coin.categories.filter(function (category) {
           dataCategories.filter(function (categoryChecked) {
@@ -542,6 +592,18 @@ function (_Component) {
                   }
 
                   dataCoinsClean = arra;
+
+                  if (filterCoin.length === index + 1) {
+                    if (orderByPrice === false) {
+                      dataCoinsClean.sort(function (a, b) {
+                        Number(a.price) - Number(b.price);
+                      });
+                    } else {
+                      dataCoinsClean.sort(function (a, b) {
+                        return Number(a.price) - Number(b.price);
+                      });
+                    }
+                  }
                 });
               });
             }
@@ -554,7 +616,7 @@ function (_Component) {
           coinData: coin,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 49
           }
         });
       });
@@ -564,13 +626,13 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 54
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 55
         }
       }, coinsData));
     }
@@ -581,7 +643,8 @@ function (_Component) {
 
 Coins.propTypes = {
   dataCoins: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired,
-  dataCategories: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired
+  dataCategories: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.arrayOf(Object).isRequired,
+  orderByPrice: __WEBPACK_IMPORTED_MODULE_3_prop_types___default.a.bool.isRequired
 };
 /* harmony default export */ __webpack_exports__["a"] = (Coins);
 
@@ -595,7 +658,7 @@ Coins.propTypes = {
 (function () {
   "use strict";
 
-  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.coin-detail-title, .coin-detail-description,\n.coin-detail-categories {\n  font-family: mrs-eaveas, serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold, .coin-title {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold {\n  background-color: #e9ab21;\n  color: #fff;\n  border-radius: 4px; }\n.btn-gold {\n  font-size: 16px;\n  padding: 10px 18px 10px 18px; }\n.btn-primary {\n  font-size: 14px;\n  padding: 10px 18px 10px 10px;\n  background-color: #1472b9; }\n.coin-title {\n  font-size: 20px; }\n.coin-price {\n  font-family: Roboto;\n  font-size: 16px; }\n.coin-image {\n  width: 200px; }\n.row-card {\n  border: 1px solid #d3d3d3;\n  box-shadow: 5px 5px 5px darkgrey; }\n.img-pinch {\n  width: 500px; }\n.coin-detail-categories {\n  font-size: 14px;\n  color: darkgrey; }\n.coin-detail-description {\n  font-size: 16px; }\n.coin-detail-price {\n  font-family: Roboto;\n  font-size: 32px; }\n";
+  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n/*Variables*/\n.coin-detail-title, .coin-detail-description,\n.coin-detail-categories {\n  font-family: mrs-eaveas, serif;\n  font-style: normal;\n  font-weight: 400; }\n.validation-error, .validation-success {\n  font-family: mrs-eaveas, serif;\n  font-style: italic;\n  font-weight: 400; }\n.btn-gold, .coin-title {\n  font-family: mr-eaves-sans, sans-serif;\n  font-style: normal;\n  font-weight: 400; }\n.btn-gold {\n  background-color: #e9ab21;\n  color: #fff;\n  border-radius: 4px; }\n.btn-gold {\n  font-size: 16px;\n  padding: 10px 18px 10px 18px; }\n.btn-primary {\n  font-size: 14px;\n  padding: 10px 18px 10px 10px;\n  background-color: #1472b9; }\n.coin-title {\n  font-size: 20px; }\n.coin-price {\n  font-family: Roboto;\n  font-size: 16px; }\n.coin-image {\n  width: 230px; }\n.row-card {\n  border: 1px solid #d3d3d3;\n  box-shadow: 5px 5px 5px darkgrey; }\n.img-thumbnail:hover {\n  border: 1px solid #e9ab21; }\n.img-pinch {\n  width: 500px; }\n.coin-detail-categories {\n  font-size: 14px;\n  color: darkgrey; }\n.coin-detail-description {\n  font-size: 16px; }\n.coin-detail-price {\n  font-family: Roboto;\n  font-size: 32px; }\n.validation-error, .validation-success {\n  font-size: 16px; }\n.validation-error {\n  color: lightcoral; }\n.validation-success {\n  color: darkgreen; }\n";
 })();
 
 /***/ }),
@@ -660,14 +723,21 @@ module.exports = [{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_inventory_Inventory__ = __webpack_require__("./components/inventory/Inventory.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inventory_Inventory__ = __webpack_require__("./components/inventory/Inventory.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__("axios");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
+
 
 
 var _jsxFileName = "/home/tushita/mercuriodev/liberty-coin/client/pages/inventory.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -680,6 +750,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -698,38 +769,55 @@ function (_Component) {
   _createClass(inventoryPage, [{
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Fragment, null, this.props.coins !== null ? __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_inventory_Inventory__["a" /* default */], {
+        dataCoins: this.props.coins,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 14
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_inventory_Inventory__["a" /* default */], {
-        coins: this.props.coins,
+      }) : __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 16
         }
-      }));
+      }, "LOADING!"));
     }
   }], [{
     key: "getInitialProps",
-    value: function getInitialProps(_ref) {
-      var req = _ref.req,
-          query = _ref.query;
-      var coins;
+    value: function () {
+      var _getInitialProps = _asyncToGenerator(
+      /*#__PURE__*/
+      __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee() {
+        var res;
+        return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return __WEBPACK_IMPORTED_MODULE_3_axios___default()("http://localhost:3000/api/all-coins");
 
-      if (req) {
-        coins = query.query;
-      }
+              case 2:
+                res = _context.sent;
+                return _context.abrupt("return", {
+                  coins: res.data
+                });
 
-      return {
-        coins: coins
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function getInitialProps() {
+        return _getInitialProps.apply(this, arguments);
       };
-    }
+    }()
   }]);
 
   return inventoryPage;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (inventoryPage);
 
@@ -740,6 +828,20 @@ function (_Component) {
 
 module.exports = __webpack_require__("./pages/inventory.js");
 
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/***/ (function(module, exports) {
+
+module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "axios":
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
 
 /***/ }),
 
