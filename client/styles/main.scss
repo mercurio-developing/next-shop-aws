@@ -6,3 +6,7 @@
     width:100%;
     overflow-x:hidden;
 }
+.btn-primary:focus, .btn-gold:focus{
+    border-color:none;
+    box-shadow: none;
+}

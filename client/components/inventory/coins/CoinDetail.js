@@ -34,7 +34,6 @@ class CoinDetail extends Component {
     axios
       .post("/addToCart", coin)
       .then(res => {
-        console.log(res);
         this.setState({
           validationCart: {
             status: res.status,
@@ -43,7 +42,6 @@ class CoinDetail extends Component {
         });
       })
       .catch(err => {
-        console.log(err.response);
         this.setState({
           validationCart: {
             status: err.response.status,
@@ -118,7 +116,7 @@ class CoinDetail extends Component {
                     <div className="row mt-5">
                       <div className="col-xl-6 col-lg-6">
                         <p className="coin-detail-price">
-                          {coinDetailData.price}
+                          ${coinDetailData.price}
                         </p>
                       </div>
                       <div className="col-xl-6 col-lg-6">

@@ -15,8 +15,12 @@ class CoinDetail extends Component {
     axios.post("/delete-coin", { id: id });
     Router.reload("/cart");
   }
+
   render() {
     const { coinsCartData } = this.props;
+    const reducer = (accumulator, currentValue) =>
+      parseFloat(accumulator.price) + parseFloat(currentValue.price);
+    const totalAmount = coinsCartData.reduce(reducer);
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: CartStyle }} />
@@ -68,9 +72,9 @@ class CoinDetail extends Component {
                           <div className="row h-50">
                             <div className="col-xl-12 col-lg-12" />
                             <p className="coin-price">
-                              {coin.price}{" "}
+                              ${coin.price}{" "}
                               <i
-                                className="far fa-trash-alt pl-2"
+                                className="far fa-trash-alt pl-5"
                                 onClick={() => this.deleteCoin(coin._id)}
                               />
                             </p>
@@ -90,7 +94,7 @@ class CoinDetail extends Component {
                                 SUBTOTAL
                               </div>
                               <div className="col-xl-6 col-lg-6 text-right order-price">
-                                $10,900
+                                ${totalAmount}
                               </div>
                             </div>
                           </div>
@@ -110,14 +114,13 @@ class CoinDetail extends Component {
                                 TOTAL
                               </div>
                               <div className="col-xl-6 col-lg-6 text-right order-price">
-                                $10,900
+                                ${totalAmount}
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-
                     <div className="col-xl-6 col-lg-6 mx-auto mt-5">
                       <button className="btn btn-md btn-gold">CHECKOUT</button>
                     </div>

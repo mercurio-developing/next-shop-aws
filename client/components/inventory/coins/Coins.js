@@ -35,17 +35,6 @@ class Coins extends Component {
                   arra.splice(pos, 1);
                 }
                 dataCoinsClean = arra;
-                if (filterCoin.length === index + 1) {
-                  if (this.state.orderByPrice === false) {
-                    dataCoinsClean.sort((a, b) => {
-                      Number(a.price) - Number(b.price);
-                    });
-                  } else {
-                    dataCoinsClean.sort(
-                      (a, b) => Number(a.price) - Number(b.price)
-                    );
-                  }
-                }
               });
             });
           }
@@ -53,9 +42,12 @@ class Coins extends Component {
       });
     });
 
-    const coinsData = dataCoinsClean.map(coin => (
-      <Coin key={coin._id} coinData={coin} />
-    ));
+    const coinsData = dataCoinsClean
+      .sort(
+        (a, b) =>
+          this.state.orderByPrice ? a.price - b.price : b.price - a.price
+      )
+      .map(coin => <Coin key={coin._id} coinData={coin} />);
 
     return (
       <>

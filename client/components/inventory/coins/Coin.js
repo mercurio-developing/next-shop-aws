@@ -9,7 +9,7 @@ class Coin extends Component {
     });
   }
   render() {
-    const { coinData, coinDetail } = this.props;
+    const { coinData } = this.props;
     return (
       <div
         key={coinData._id}

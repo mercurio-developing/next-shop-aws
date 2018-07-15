@@ -1999,9 +1999,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props = this.props,
-          coinData = _props.coinData,
-          coinDetail = _props.coinDetail;
+      var coinData = this.props.coinData;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         key: coinData._id,
         className: "col-xl-4 col-md-4 col-sm-4 col-4 text-center mt-3",
@@ -2135,31 +2133,21 @@ function (_Component) {
                   }
 
                   dataCoinsClean = arra;
-
-                  if (filterCoin.length === index + 1) {
-                    if (_this2.state.orderByPrice === false) {
-                      dataCoinsClean.sort(function (a, b) {
-                        Number(a.price) - Number(b.price);
-                      });
-                    } else {
-                      dataCoinsClean.sort(function (a, b) {
-                        return Number(a.price) - Number(b.price);
-                      });
-                    }
-                  }
                 });
               });
             }
           });
         });
       });
-      var coinsData = dataCoinsClean.map(function (coin) {
+      var coinsData = dataCoinsClean.sort(function (a, b) {
+        return _this2.state.orderByPrice ? a.price - b.price : b.price - a.price;
+      }).map(function (coin) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Coin__["a" /* default */], {
           key: coin._id,
           coinData: coin,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 50
           }
         });
       });
@@ -2169,42 +2157,42 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 54
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-11 col-lg-11 mr-auto",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 55
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 56
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "col-xl-2 col-lg-2 ml-auto text-right",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 57
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
         className: "form-inline",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 58
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "form-group",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 59
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 60
         }
       }, "SORT BY:"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
         className: "form-control pl-2 ml-2",
@@ -2213,23 +2201,23 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 61
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 67
         }
       }, "Price: Low to High"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 68
         }
       }, "Price: High to Low"))))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "row h-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 73
         }
       }, coinsData))));
     }

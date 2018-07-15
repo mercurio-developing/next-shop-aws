@@ -223,7 +223,7 @@ function (_Document) {
 (function () {
   "use strict";
 
-  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://fonts.googleapis.com/css?family=Roboto\");\n/*Variables*/\n#__next {\n  height: 100vh;\n  width: 100%;\n  overflow-x: hidden; }\n";
+  module.exports = "\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://use.typekit.net/bcx7vnk.css\");\n@import url(\"https://fonts.googleapis.com/css?family=Roboto\");\n/*Variables*/\n#__next {\n  height: 100vh;\n  width: 100%;\n  overflow-x: hidden; }\n.btn-primary:focus, .btn-gold:focus {\n  border-color: none;\n  box-shadow: none; }\n";
 })();
 
 /***/ }),
