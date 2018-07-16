@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Cart from "../components/cart/Cart";
+import Checkout from "../components/checkout/Checkout";
 import axios from "axios";
-class cartPage extends Component {
+class checkoutPage extends Component {
   static async getInitialProps({ req }) {
     if (req) {
       return { coinsData: req.session.cart };
@@ -12,12 +12,13 @@ class cartPage extends Component {
 
   render() {
     const { coinsData } = this.props;
+    console.log(this.props.coinsData);
     return (
       <>
-        <Cart coinsCartData={coinsData} />
+        <Checkout coinsCartData={coinsData} />
       </>
     );
   }
 }
 
-export default cartPage;
+export default checkoutPage;

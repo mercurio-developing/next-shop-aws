@@ -80,7 +80,8 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "reactstrap": "^6.3.0",
-    "sass-loader": "^7.0.3"
+    "sass-loader": "^7.0.3",
+    "validator": "^10.4.0"
   },
   "devDependencies": {
     "eslint": "^5.0.1",

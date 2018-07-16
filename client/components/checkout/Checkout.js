@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import axios from "axios";
 import Router from "next/router";
 import Proptypes from "prop-types";
-import CartStyle from "./Cart.scss";
-import Card from "./Card";
-class Cart extends Component {
+import CheckoutStyle from "./Checkout.scss";
+import Form from "./Form";
+
+class Checkout extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    const deleteCoin = this.deleteCoin.bind(this);
   }
 
-  deleteCoin(id) {
-    axios.post("/delete-coin", { id: id });
-    Router.reload("/cart");
+  Checkout() {
+    axios.get("/delete-coin");
+    Router.reload("/Checkout");
   }
 
   render() {
@@ -31,36 +31,25 @@ class Cart extends Component {
     }
     return (
       <>
-        <style dangerouslySetInnerHTML={{ __html: CartStyle }} />
+        <style dangerouslySetInnerHTML={{ __html: CheckoutStyle }} />
         <div className="row p-4">
           <div className="col-xl-10 col-lg-10 mx-auto">
             <div className="row ">
               <button
                 className="btn btn-primary btn-md"
-                onClick={() => Router.push("/inventory")}
+                onClick={() => Router.push("/cart")}
               >
                 <i className="fas fa-arrow-left pr-2" />
                 Back to Inventory
               </button>
             </div>
-            <div className="row cart-row mt-5 mb-5">
+            <div className="row checkout-row mt-5 mb-5">
               <div className="col-xl-12 col-lg-12">
                 <div className="row h-100">
-                  <div className="col-xl-8 col-lg-8 items-row p-4">
-                    <label className="label-header">SHOPPING CART</label>
-                    {coinsCartData.length === 0 ? (
-                      <p>CART EMPTY</p>
-                    ) : (
-                      <Card
-                        coinsCartData={coinsCartData}
-                        deleteCoin={this.deleteCoin}
-                      />
-                    )}
-                  </div>
                   <div className="col-xl-4 div lg-4 p-4">
                     <div className="row h-50">
                       <div className="col-xl-12 col-lg-12">
-                        <div className="row h-75 order-row">
+                        <div className="row h-75 order-row p-2">
                           <label className="label-header">YOUR ORDER</label>
                           <div className="col-xl-10 col-lg-10 mx-auto mt-5">
                             <div className="row line p-2">
@@ -95,13 +84,12 @@ class Cart extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-xl-6 col-lg-6 mx-auto mt-5">
-                      <button
-                        className="btn btn-md btn-gold"
-                        onClick={() => Router.push("/checkout")}
-                      >
-                        CHECKOUT
-                      </button>
+                  </div>
+                  <div className="col-xl-8 col-lg-8 billing-row p-4">
+                    <div className="row">
+                      <div className="col-lg-12 col-xl-12">
+                        <Form totalAmount={totalAmount} />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -114,8 +102,8 @@ class Cart extends Component {
   }
 }
 
-Cart.propTypes = {
+Checkout.propTypes = {
   coinsCartData: Proptypes.arrayOf(Object).isRequired
 };
 
-export default Cart;
+export default Checkout;

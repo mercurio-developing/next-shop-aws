@@ -1,15 +1,19 @@
 @import './index.scss';
 // ///////////////////
-//CART COMPONENT/////
+//CHECKOUT COMPONENT/////
 //////////////////////
 .btn-primary{
     font-size:14px;
     padding:10px 18px 10px 10px;
     background-color:$blue;
 }
-.cart-row{
+.checkout-row{
     border:1px solid darkgrey;
     min-height: 60vh;
+}
+
+.billing-row{
+    background-color:$lightgrey;
 }
 .label-header{
     @extend %mrs-eaveas-sans;
@@ -23,27 +27,6 @@ label{
 }
 .items-row{
     background-color:$lightgrey 
-}
-.cart-items{
-    background-color:#fff;
-    box-shadow:3px 3px 3px 2px darkgrey;
-}
-.cart-img{
-    width:140px;
-}
-
-.coin-name{
-    @extend %mrs-eaveas-ot-roman;
-    font-size:18px;
-}
-
-.coin-price{
-    font-family:Roboto;
-    font-size:18px;
-}
-
-.fa-trash-alt{
-    font-size:20px;
 }
 
 // ORDER
